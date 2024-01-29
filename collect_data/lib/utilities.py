@@ -5,8 +5,7 @@ import csv
 from pathlib import Path
 from datetime import datetime
 from dateutil import parser
-
-from icecream import ic
+#from .logconfig import logger
 
 C_TIMESTAMPS = ["from_timestamp", "to_timestamp"]
 
@@ -72,12 +71,12 @@ def read_jsonfile(filename: str, object_hook=False) -> dict:
                 else:
                     jsondict = json.load(infile)
             except Exception as err:
-                logger.error("Error in Input JSON file: %s" % str(err))
+                #   logger.error("Error in Input JSON file: %s" % str(err))
                 sys.exit("Error in Input JSON file: %s" % str(err))
 
         return jsondict
     else:
-        logger.error("JSON input file %s not found. exiting..." % str(jsonfile))
+    #    logger.error("JSON input file %s not found. exiting..." % str(jsonfile))
         sys.exit("Error: json input file %s not found. exiting..." % str(jsonfile))
 
 
@@ -165,7 +164,7 @@ def check_path(path: str) -> None:
         path:
             Directory path
     """
-    print(f"__Create directory {path}")
+    #   print(f"__Create directory {path}")
     Path(path).mkdir(parents=False, exist_ok=True)
 
     return None

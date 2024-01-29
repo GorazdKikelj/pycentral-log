@@ -2,7 +2,7 @@ import argparse
 import json
 import sys
 from .logconfig import logger, log_level
-from lib.utilities import (
+from .utilities import (
     get_ap_list_from_csv,
     get_debug_commands_from_json,
     get_filter_from_json,
@@ -11,7 +11,6 @@ from lib.utilities import (
 )
 from datetime import datetime
 from dateutil import parser
-from icecream import ic
 
 C_TOPIC_CUSTOMER = [
     "token",
@@ -108,7 +107,7 @@ def define_arguments():
         "--debug_level",
         required=False,
         help="Set debul level to [NOTSET, DEBUG, INFO, WARNING, ERROR, CRITICAL]",
-        default=log_level["INFO"],
+        default="INFO",
     )
 
     return parser
@@ -140,9 +139,8 @@ def process_arguments(args):
         csv_file = args.csv_input
         csv_sn_column = args.csv_sn_column
         csv_delimiter = args.csv_delimiter
-        if csv_delimiter == "\\t":
+        if csv_delimiter in ["\\t", "tab", "Tab"]:
             csv_delimiter = "\t"
-        ic(csv_delimiter)
         param_dict["device_list"] = get_ap_list_from_csv(
             filename=csv_file, row_index=csv_sn_column, delimiter=csv_delimiter
         )

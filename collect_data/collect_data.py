@@ -2,7 +2,7 @@ from datetime import datetime
 from time import sleep
 from lib.central import get_central_data, post_central_data, connect_to_central
 from lib.arguments import init_arguments
-from icecream import ic
+#from icecream import ic
 from lib.utilities import create_filename
 
 """
