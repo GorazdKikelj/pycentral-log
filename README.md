@@ -34,11 +34,11 @@ Setup:
 
 2. Create debug commans JSON file. Available command depend on device type. More detail can be found in Aruba Central Swagger Page. 
 Here is the example file to collect 
-
+'''
 show tech-support
 show ap debug crash-info
 
-'''
+
 {
     "device_type": "IAP",
     "commands": [
@@ -65,6 +65,7 @@ show ap debug crash-info
 '''
 
 3. Create filter JSON file, if you will select APs by event type
+
 '''
 {
     "device_type": "ACCESS POINT",
