@@ -311,11 +311,11 @@ All filter fields:
 
 commands.json
 
-    List of debug commands sent to device.
-    List of commands is available in Swagger.
-    Use only commands appropriate for device type selected.
+List of debug commands sent to device.
+List of commands is available in Swagger.
+Use only commands appropriate for device type selected.
 
-    Example of debug commands from swagger:
+Example of debug commands from swagger:
 
 ```
         {
@@ -333,7 +333,7 @@ commands.json
 
 ```
     
-    Example commands.json file:
+Example commands.json file:
 ```
 
 {
