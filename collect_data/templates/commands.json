@@ -1,0 +1,23 @@
+{
+    "device_type": "IAP",
+    "commands": [
+        {
+            "command_id": 115,
+            "arguments": [
+                {
+                    "name": "",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "command_id": 34,
+            "arguments": [
+                {
+                    "name": "",
+                    "value": ""
+                }
+            ]
+        }
+    ]
+}

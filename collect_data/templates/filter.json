@@ -1,0 +1,6 @@
+{
+    "device_type": "ACCESS POINT",
+    "sort": "-timestamp",
+    "event_type": "AP Exception",
+    "from_timestamp": "2023-12-01"
+}

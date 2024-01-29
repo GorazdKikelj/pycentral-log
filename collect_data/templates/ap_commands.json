@@ -1,0 +1,2688 @@
+{
+    "commands": [
+        {
+            "category": "Wireless",
+            "command": "show cellular status",
+            "command_id": 1,
+            "summary": "AP 3G/4G Status"
+        },
+        {
+            "category": "Security",
+            "command": "show ap debug dot1x-statistics",
+            "command_id": 2,
+            "summary": "AP 802.1X Statistics"
+        },
+        {
+            "category": "Security",
+            "command": "show access-rule-all",
+            "command_id": 3,
+            "summary": "AP Access Rule Table"
+        },
+        {
+            "category": "Network",
+            "command": "show aps",
+            "command_id": 4,
+            "summary": "AP Active"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup cache entries",
+            "command_id": 5,
+            "summary": "AP AirGroup Cache"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup cppm entries",
+            "command_id": 6,
+            "summary": "AP AirGroup CPPM Entries"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup cppm server",
+            "command_id": 7,
+            "summary": "AP AirGroup CPPM Servers"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup debug statistics",
+            "command_id": 8,
+            "summary": "AP AirGroup Debug Statistics"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup servers",
+            "command_id": 9,
+            "summary": "AP AirGroup Servers"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup users",
+            "command_id": 10,
+            "summary": "AP AirGroup User"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap allowed-channels",
+            "command_id": 11,
+            "summary": "AP Allowed Channels"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap allowed-max-EIRP",
+            "command_id": 12,
+            "summary": "AP Allowed MAX-EIRP"
+        },
+        {
+            "category": "System",
+            "command": "show clock timezone all",
+            "command_id": 13,
+            "summary": "AP All Supported Timezones"
+        },
+        {
+            "category": "ARM",
+            "command": "show ap arm bandwidth-management",
+            "command_id": 14,
+            "summary": "AP ARM Bandwidth Management"
+        },
+        {
+            "category": "ARM",
+            "command": "show arm-channels",
+            "command_id": 15,
+            "summary": "AP ARM Channels"
+        },
+        {
+            "category": "ARM",
+            "command": "show arm config",
+            "command_id": 16,
+            "summary": "AP ARM Configuration"
+        },
+        {
+            "category": "ARM",
+            "command": "show ap arm history",
+            "command_id": 17,
+            "summary": "AP ARM History"
+        },
+        {
+            "category": "ARM",
+            "command": "show ap arm neighbors",
+            "command_id": 18,
+            "summary": "AP ARM Neighbors"
+        },
+        {
+            "category": "ARM",
+            "command": "show ap arm rf-summary",
+            "command_id": 19,
+            "summary": "AP ARM RF Summary"
+        },
+        {
+            "category": "ARM",
+            "command": "show ap arm scan-times",
+            "command_id": 20,
+            "summary": "AP ARM Scan Times"
+        },
+        {
+            "category": "Network",
+            "command": "show arp",
+            "command_id": 21,
+            "summary": "AP ARP Table"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap association",
+            "command_id": 22,
+            "summary": "AP Association Table"
+        },
+        {
+            "category": "Security",
+            "command": "ap authentication frames",
+            "command_id": 23,
+            "summary": "AP Authentication Frames"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap bss-table",
+            "command_id": 24,
+            "summary": "AP BSSID Table"
+        },
+        {
+            "category": "Security",
+            "command": "show captive-portal-domains",
+            "command_id": 25,
+            "summary": "AP Captive Portal Domains"
+        },
+        {
+            "category": "Security",
+            "command": "show captive-portal auto-white-list",
+            "command_id": 26,
+            "summary": "AP Captive Portal Auto White List"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap client-match-history",
+            "command_id": 27,
+            "summary": "AP Client Match History"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap client-match-live",
+            "command_id": 28,
+            "summary": "AP Client Match Live"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug client-table",
+            "command_id": 29,
+            "summary": "AP Client Table"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap client-view",
+            "command_id": 30,
+            "summary": "AP Client View"
+        },
+        {
+            "category": "System",
+            "command": "show country-codes",
+            "command_id": 31,
+            "summary": "AP Country Codes"
+        },
+        {
+            "category": "System",
+            "command": "show cpu details",
+            "command_id": 32,
+            "summary": "AP CPU Details"
+        },
+        {
+            "category": "System",
+            "command": "show cpu",
+            "command_id": 33,
+            "summary": "AP CPU Utilization"
+        },
+        {
+            "category": "System",
+            "command": "show ap debug crash-info",
+            "command_id": 34,
+            "summary": "AP Crash Info"
+        },
+        {
+            "category": "System",
+            "command": "show clock",
+            "command_id": 35,
+            "summary": "AP Current Time"
+        },
+        {
+            "category": "System",
+            "command": "show clock timezone",
+            "command_id": 36,
+            "summary": "AP Current Timezone"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath acl-allocation",
+            "command_id": 37,
+            "summary": "AP Datapath ACL Table Allocation"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath acl-all",
+            "command_id": 38,
+            "summary": "AP Datapath ACL Tables"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath bridge",
+            "command_id": 39,
+            "summary": "AP Datapath Bridge Table"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath dmo-session",
+            "command_id": 40,
+            "summary": "AP Datapath DMO session"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath dns-id-map",
+            "command_id": 41,
+            "summary": "AP Datapath Dns Id Map"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath mcast",
+            "command_id": 42,
+            "summary": "AP Datapath Multicast Table"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath nat-pool",
+            "command_id": 43,
+            "summary": "AP Datapath Nat Pool"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath route",
+            "command_id": 44,
+            "summary": "AP Datapath Route Table"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath session",
+            "command_id": 45,
+            "summary": "AP Datapath Session Table"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath statistics",
+            "command_id": 46,
+            "summary": "AP Datapath Statistics"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath user",
+            "command_id": 47,
+            "summary": "AP Datapath User Table"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath vlan",
+            "command_id": 48,
+            "summary": "AP Datapath VLAN Table"
+        },
+        {
+            "category": "System",
+            "command": "show clock summer-time",
+            "command_id": 49,
+            "summary": "AP Daylight Saving Time"
+        },
+        {
+            "category": "Security",
+            "command": "show derivation-rules",
+            "command_id": 50,
+            "summary": "AP Derivation Rules"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug driver-config",
+            "command_id": 51,
+            "summary": "AP Driver Configuration"
+        },
+        {
+            "category": "System",
+            "command": "show election statistics",
+            "command_id": 52,
+            "summary": "AP Election Statistics"
+        },
+        {
+            "category": "System",
+            "command": "show ap-env",
+            "command_id": 53,
+            "summary": "AP Environment Variable"
+        },
+        {
+            "category": "Wireless",
+            "command": "show network",
+            "command_id": 54,
+            "summary": "AP ESSID Table"
+        },
+        {
+            "category": "Network",
+            "command": "show ip igmp",
+            "command_id": 56,
+            "summary": "AP IGMP Group Table"
+        },
+        {
+            "category": "Network",
+            "command": "show interface counters",
+            "command_id": 57,
+            "summary": "AP Interface Counters"
+        },
+        {
+            "category": "Network",
+            "command": "show port status",
+            "command_id": 58,
+            "summary": "AP Interface Status"
+        },
+        {
+            "category": "Network",
+            "command": "show dhcp-allocation",
+            "command_id": 59,
+            "summary": "AP Internal DHCP Status"
+        },
+        {
+            "category": "Network",
+            "command": "show ip interface brief",
+            "command_id": 60,
+            "summary": "AP IP Interface"
+        },
+        {
+            "category": "Network",
+            "command": "show ip route",
+            "command_id": 61,
+            "summary": "AP IP Route Table"
+        },
+        {
+            "category": "Network",
+            "command": "show l3-mobility datapath",
+            "command_id": 62,
+            "summary": "AP L3 Mobility Datapath"
+        },
+        {
+            "category": "Network",
+            "command": "show log l3-mobility",
+            "command_id": 63,
+            "summary": "AP L3 Mobility Events log"
+        },
+        {
+            "category": "Network",
+            "command": "show l3-mobility status",
+            "command_id": 64,
+            "summary": "AP L3 Mobility Status"
+        },
+        {
+            "category": "Network",
+            "command": "show lacp status",
+            "command_id": 65,
+            "summary": "AP LACP Status"
+        },
+        {
+            "category": "Logs",
+            "command": "show log debug",
+            "command_id": 66,
+            "summary": "AP Log All"
+        },
+        {
+            "category": "Logs",
+            "command": "show log ap-debug",
+            "command_id": 67,
+            "summary": "AP Log AP-Debug"
+        },
+        {
+            "category": "Logs",
+            "command": "show log convert",
+            "command_id": 68,
+            "summary": "AP Log Conversion"
+        },
+        {
+            "category": "Logs",
+            "command": "show log driver",
+            "command_id": 69,
+            "summary": "AP Log Driver"
+        },
+        {
+            "category": "Logs",
+            "command": "show log kernel",
+            "command_id": 70,
+            "summary": "AP Log Kernel"
+        },
+        {
+            "category": "Logs",
+            "command": "show log network",
+            "command_id": 71,
+            "summary": "AP Log Network"
+        },
+        {
+            "category": "Logs",
+            "command": "show log pppd",
+            "command_id": 72,
+            "summary": "AP Log PPPd"
+        },
+        {
+            "category": "Logs",
+            "command": "show log rapper",
+            "command_id": 73,
+            "summary": "AP Log Rapper"
+        },
+        {
+            "category": "Logs",
+            "command": "show log sapd",
+            "command_id": 74,
+            "summary": "AP Log Sapd"
+        },
+        {
+            "category": "Logs",
+            "command": "show log security",
+            "command_id": 75,
+            "summary": "AP Log Security"
+        },
+        {
+            "category": "Logs",
+            "command": "ap log system",
+            "command_id": 76,
+            "summary": "AP Log System"
+        },
+        {
+            "category": "Logs",
+            "command": "show log apifmgr",
+            "command_id": 77,
+            "summary": "AP Log Tunnel Status Management"
+        },
+        {
+            "category": "Logs",
+            "command": "show log upgrade",
+            "command_id": 78,
+            "summary": "AP Log Upgrade"
+        },
+        {
+            "category": "Logs",
+            "command": "show log user-debug",
+            "command_id": 79,
+            "summary": "AP Log User-Debug"
+        },
+        {
+            "category": "Logs",
+            "command": "show log user",
+            "command_id": 80,
+            "summary": "AP Log User"
+        },
+        {
+            "category": "Logs",
+            "command": "show log vpn-tunnel",
+            "command_id": 81,
+            "summary": "AP Log VPN Tunnel"
+        },
+        {
+            "category": "Logs",
+            "command": "show log wireless",
+            "command_id": 82,
+            "summary": "AP Log Wireless"
+        },
+        {
+            "category": "Wireless",
+            "command": "ap management frames",
+            "command_id": 83,
+            "summary": "AP Management Frames"
+        },
+        {
+            "category": "System",
+            "command": "show malloc-state-dumps",
+            "command_id": 84,
+            "summary": "AP Memory Allocation State Dumps"
+        },
+        {
+            "category": "System",
+            "command": "show memory",
+            "command_id": 85,
+            "summary": "AP Memory Utilization"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap mesh counters",
+            "command_id": 86,
+            "summary": "AP Mesh Counters"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap mesh link",
+            "command_id": 87,
+            "summary": "AP Mesh Link"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap mesh neighbours",
+            "command_id": 88,
+            "summary": "AP Mesh Neighbors"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap monitor active-laser-beams",
+            "command_id": 89,
+            "summary": "AP Monitor Active Laser Beams"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap monitor ap-list",
+            "command_id": 90,
+            "summary": "AP Monitor AP Table"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap monitor arp-cache",
+            "command_id": 91,
+            "summary": "AP Monitor ARP Cache"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap monitor sta-list",
+            "command_id": 92,
+            "summary": "AP Monitor Client Table"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap monitor containment-info",
+            "command_id": 93,
+            "summary": "AP Monitor Containment Information"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap monitor pot-ap-list",
+            "command_id": 94,
+            "summary": "AP Monitor Potential AP Table"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap monitor pot-sta-list",
+            "command_id": 95,
+            "summary": "AP Monitor Potential Client Table"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap monitor routers",
+            "command_id": 96,
+            "summary": "AP Monitor Router"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap monitor scan-info",
+            "command_id": 97,
+            "summary": "AP Monitor Scan Information"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap monitor status",
+            "command_id": 98,
+            "summary": "AP Monitor Status"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug persistent-clients",
+            "command_id": 99,
+            "summary": "AP Persistent Clients"
+        },
+        {
+            "category": "Security",
+            "command": "show ap pmkcache",
+            "command_id": 100,
+            "summary": "AP PMK Cache"
+        },
+        {
+            "category": "Network",
+            "command": "show pppoe debug-logs",
+            "command_id": 101,
+            "summary": "AP PPPoE uplink debug"
+        },
+        {
+            "category": "Network",
+            "command": "show pppoe status",
+            "command_id": 102,
+            "summary": "AP PPPoE uplink status"
+        },
+        {
+            "category": "System",
+            "command": "show process",
+            "command_id": 103,
+            "summary": "AP Processes"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap client-probe-report 0",
+            "command_id": 104,
+            "summary": "AP Radio 0 Client Probe Report"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug radio-stats 0",
+            "command_id": 105,
+            "summary": "AP Radio 0 Stats"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap client-probe-report 1",
+            "command_id": 106,
+            "summary": "AP Radio 1 Client Probe Report"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug radio-stats 1",
+            "command_id": 107,
+            "summary": "AP Radio 1 Stats"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug radius-statistics",
+            "command_id": 108,
+            "summary": "AP RADIUS Statistics"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug shaping-table",
+            "command_id": 109,
+            "summary": "AP Shaping Table"
+        },
+        {
+            "category": "System",
+            "command": "show socket",
+            "command_id": 110,
+            "summary": "AP Sockets"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug stm-config",
+            "command_id": 111,
+            "summary": "AP STM Configuration"
+        },
+        {
+            "category": "Network",
+            "command": "show swarm state",
+            "command_id": 112,
+            "summary": "AP Swarm State"
+        },
+        {
+            "category": "System",
+            "command": "show ap debug system-status",
+            "command_id": 113,
+            "summary": "AP System Status"
+        },
+        {
+            "category": "System",
+            "command": "show summary support",
+            "command_id": 114,
+            "summary": "AP System Summary"
+        },
+        {
+            "category": "System",
+            "command": "show tech-support",
+            "command_id": 115,
+            "summary": "AP Tech Support Dump"
+        },
+        {
+            "category": "Network",
+            "command": "show uplink status",
+            "command_id": 116,
+            "summary": "AP Uplink Status"
+        },
+        {
+            "category": "Wireless",
+            "command": "show clients",
+            "command_id": 117,
+            "summary": "AP User Table"
+        },
+        {
+            "category": "Wireless",
+            "command": "show valid-channels",
+            "command_id": 118,
+            "summary": "AP Valid Channels"
+        },
+        {
+            "category": "System",
+            "command": "show version",
+            "command_id": 119,
+            "summary": "AP Version"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap virtual-beacon-report",
+            "command_id": 120,
+            "summary": "AP Virtual Beacon Report"
+        },
+        {
+            "category": "Security",
+            "command": "show vpn status",
+            "command_id": 121,
+            "summary": "AP VPN Status"
+        },
+        {
+            "category": "Network",
+            "command": "show wired-port-settings",
+            "command_id": 122,
+            "summary": "AP Wired Port Settings"
+        },
+        {
+            "category": "Network",
+            "command": "show clients wired",
+            "command_id": 123,
+            "summary": "AP Wired User Table"
+        },
+        {
+            "category": "Security",
+            "command": "show 1xcert",
+            "command_id": 124,
+            "summary": "Show 802.1x Certificate"
+        },
+        {
+            "category": "System",
+            "command": "show about",
+            "command_id": 125,
+            "summary": "Show About"
+        },
+        {
+            "category": "System",
+            "command": "show running-config",
+            "command_id": 126,
+            "summary": "Show Active Configuration"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroupservice",
+            "command_id": 127,
+            "summary": "Show AirGroupService"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup status",
+            "command_id": 128,
+            "summary": "Show AirGroup Status"
+        },
+        {
+            "category": "System",
+            "command": "show allowed-aps",
+            "command_id": 129,
+            "summary": "Show Allowed AP Table"
+        },
+        {
+            "category": "Central",
+            "command": "show ap debug cloud-state",
+            "command_id": 130,
+            "summary": "Show Central Current State Data"
+        },
+        {
+            "category": "Central",
+            "command": "show ap debug cloud-stats",
+            "command_id": 131,
+            "summary": "Show Central Current Stats Data"
+        },
+        {
+            "category": "Central",
+            "command": "show ap debug cloud-data-sent",
+            "command_id": 132,
+            "summary": "Show Central Data Sent"
+        },
+        {
+            "category": "Central",
+            "command": "show ap debug cloud-events-pending",
+            "command_id": 133,
+            "summary": "Show Central Events Pending"
+        },
+        {
+            "category": "Central",
+            "command": "show ap debug cloud-config-received",
+            "command_id": 134,
+            "summary": "Show Central Last Configuration Received"
+        },
+        {
+            "category": "Central",
+            "command": "show ap debug cloud-server",
+            "command_id": 135,
+            "summary": "Show Central Server"
+        },
+        {
+            "category": "Cluster",
+            "command": "show cluster",
+            "command_id": 209,
+            "summary": "Show Cluster"
+        },
+        {
+            "category": "Central",
+            "command": "show ap debug cloud-signon-key",
+            "command_id": 136,
+            "summary": "Show Central Single Sign-on Key"
+        },
+        {
+            "category": "System",
+            "command": "show app-services",
+            "command_id": 137,
+            "summary": "Show Application Services"
+        },
+        {
+            "category": "Security",
+            "command": "show auth-survivability cached-info",
+            "command_id": 138,
+            "summary": "Show Auth-Survivability Cache"
+        },
+        {
+            "category": "Network",
+            "command": "show dhcpc-opts",
+            "command_id": 139,
+            "summary": "Show DHCP Option 43 Received"
+        },
+        {
+            "category": "System",
+            "command": "show alert global",
+            "command_id": 140,
+            "summary": "Show Global Alerts"
+        },
+        {
+            "category": "System",
+            "command": "show stats global",
+            "command_id": 141,
+            "summary": "Show Global Statistics"
+        },
+        {
+            "category": "Security",
+            "command": "show ids aps",
+            "command_id": 142,
+            "summary": "Show IDS AP List"
+        },
+        {
+            "category": "Security",
+            "command": "show ids clients",
+            "command_id": 143,
+            "summary": "Show IDS Client List"
+        },
+        {
+            "category": "Network",
+            "command": "show ip dhcp database",
+            "command_id": 144,
+            "summary": "Show Internal DHCP Server Configuration"
+        },
+        {
+            "category": "Network",
+            "command": "show l2tpv3 config",
+            "command_id": 145,
+            "summary": "Show L2TPv3 config"
+        },
+        {
+            "category": "Network",
+            "command": "show l2tpv3 session status",
+            "command_id": 146,
+            "summary": "Show L2TPv3 session status"
+        },
+        {
+            "category": "Network",
+            "command": "show l2tpv3 system statistics",
+            "command_id": 147,
+            "summary": "Show L2TPv3 system wide global statistics"
+        },
+        {
+            "category": "Network",
+            "command": "show l2tpv3 tunnel config",
+            "command_id": 148,
+            "summary": "Show L2TPv3 tunnel configuration"
+        },
+        {
+            "category": "Network",
+            "command": "show l2tpv3 tunnel status",
+            "command_id": 149,
+            "summary": "Show L2TPv3 tunnel status"
+        },
+        {
+            "category": "System",
+            "command": "show users",
+            "command_id": 150,
+            "summary": "Show Local User Database"
+        },
+        {
+            "category": "System",
+            "command": "show opendns support",
+            "command_id": 151,
+            "summary": "Show OpenDNS Configuration and Status"
+        },
+        {
+            "category": "Security",
+            "command": "show radius-attributes",
+            "command_id": 152,
+            "summary": "Show Radius Attributes"
+        },
+        {
+            "category": "Security",
+            "command": "show radius-servers support",
+            "command_id": 153,
+            "summary": "Show Radius Servers"
+        },
+        {
+            "category": "System",
+            "command": "show configuration",
+            "command_id": 154,
+            "summary": "Show Saved Configuration"
+        },
+        {
+            "category": "Wireless",
+            "command": "show aps scanning",
+            "command_id": 155,
+            "summary": "Show Scanning Stats"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath sbr",
+            "command_id": 156,
+            "summary": "Show SBR Table"
+        },
+        {
+            "category": "System",
+            "command": "show snmp-configuration",
+            "command_id": 157,
+            "summary": "Show SNMP Configuration"
+        },
+        {
+            "category": "Wireless",
+            "command": "show cellular config",
+            "command_id": 158,
+            "summary": "Show Uplink 3G/4G Configuration"
+        },
+        {
+            "category": "Network",
+            "command": "show uplink config",
+            "command_id": 159,
+            "summary": "Show Uplink Management Configuration"
+        },
+        {
+            "category": "Wireless",
+            "command": "show wispr config",
+            "command_id": 160,
+            "summary": "Show WISPr Configuration"
+        },
+        {
+            "category": "Cluster Security",
+            "command": "show cluster-security peers",
+            "command_id": 161,
+            "summary": "Show Cluster-Security Peers"
+        },
+        {
+            "category": "Cluster Security",
+            "command": "show cluster-security connections",
+            "command_id": 163,
+            "summary": "Show Cluster-Security Connections"
+        },
+        {
+            "category": "Cluster Security",
+            "command": "show cluster-security",
+            "command_id": 164,
+            "summary": "Show Cluster-Security"
+        },
+        {
+            "arguments": [
+                {
+                    "description": "IP address or hostname of host",
+                    "name": "Host"
+                }
+            ],
+            "category": "Tools",
+            "command": "ping",
+            "command_id": 165,
+            "summary": "Ping"
+        },
+        {
+            "arguments": [
+                {
+                    "description": "IP address or hostname of host",
+                    "name": "Host"
+                }
+            ],
+            "category": "Tools",
+            "command": "traceroute",
+            "command_id": 166,
+            "summary": "Traceroute"
+        },
+        {
+            "category": "Speed Test",
+            "command": "show speed-test data",
+            "command_id": 167,
+            "summary": "Show Speed Test Data"
+        },
+        {
+            "arguments": [
+                {
+                    "description": "iperf server IP address",
+                    "name": "Host"
+                },
+                {
+                    "description": "tcp/udp",
+                    "name": "Protocol"
+                },
+                {
+                    "description": "ex. bandwidth 10 sec-to-measure 5 server-port 5201",
+                    "name": "Options"
+                }
+            ],
+            "category": "Tools",
+            "command": "speed-test",
+            "command_id": 168,
+            "summary": "iPerf Speed-Test"
+        },
+        {
+            "category": "OFC",
+            "command": "show openflow controller",
+            "command_id": 169,
+            "summary": "Show Openflow Controller"
+        },
+        {
+            "category": "OFC",
+            "command": "show openflow clickstream-statistics",
+            "command_id": 170,
+            "summary": "Show Openflow Clickstream-Statistics"
+        },
+        {
+            "category": "OFC",
+            "command": "show openflow controller detail",
+            "command_id": 171,
+            "summary": "Show Openflow Controller Detail"
+        },
+        {
+            "category": "OFC",
+            "command": "show openflow flow-table",
+            "command_id": 172,
+            "summary": "Show Openflow Flow-Table"
+        },
+        {
+            "category": "OFC",
+            "command": "show log openflow",
+            "command_id": 173,
+            "summary": "Show Log Openflow"
+        },
+        {
+            "category": "System",
+            "command": "show ap-alert",
+            "command_id": 174,
+            "summary": "AP Alerts"
+        },
+        {
+            "category": "System",
+            "command": "show fault",
+            "command_id": 175,
+            "summary": "AP Fault"
+        },
+        {
+            "category": "System",
+            "command": "show fault history",
+            "command_id": 176,
+            "summary": "AP Fault History"
+        },
+        {
+            "category": "Wireless",
+            "command": "show cluster bss-table",
+            "command_id": 177,
+            "summary": "Show Cluster BSS-Table"
+        },
+        {
+            "category": "Network",
+            "command": "show gre config",
+            "command_id": 178,
+            "summary": "Show GRE Config"
+        },
+        {
+            "category": "Network",
+            "command": "show gre status",
+            "command_id": 179,
+            "summary": "Show GRE Status"
+        },
+        {
+            "category": "Network",
+            "command": "show ap debug lldp neighbor",
+            "command_id": 180,
+            "summary": "Show AP Debug LLDP Neighbor"
+        },
+        {
+            "category": "Security",
+            "command": "show radius status",
+            "command_id": 181,
+            "summary": "Show Radius Status"
+        },
+        {
+            "category": "System",
+            "command": "show ntp status",
+            "command_id": 182,
+            "summary": "Show NTP Status"
+        },
+        {
+            "category": "System",
+            "command": "show ntp debug",
+            "command_id": 183,
+            "summary": "Show NTP Debug"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug client-stats",
+            "command_id": 184,
+            "summary": "Show AP Debug Client-Stats"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug dot1x-statistics",
+            "command_id": 185,
+            "summary": "Show AP Debug Dot1x-Statistic"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap dot11k beacon report",
+            "command_id": 186,
+            "summary": "Show AP Dot11k Beacon Report"
+        },
+        {
+            "category": "Wireless",
+            "command": "show clients debug",
+            "command_id": 187,
+            "summary": "Show Clients Debug"
+        },
+        {
+            "category": "Wired",
+            "command": "show clients wired debug",
+            "command_id": 188,
+            "summary": "Show Clients Wired Debug"
+        },
+        {
+            "category": "Wireless",
+            "command": "show client status",
+            "command_id": 189,
+            "summary": "Show Client Status"
+        },
+        {
+            "category": "Security",
+            "command": "show dpi-stats session",
+            "command_id": 190,
+            "summary": "Show Dpi-Stats Session"
+        },
+        {
+            "category": "Security",
+            "command": "show inbound-firewall-rules",
+            "command_id": 191,
+            "summary": "Show Inbound Firewall Rules"
+        },
+        {
+            "category": "System",
+            "command": "show radio config",
+            "command_id": 192,
+            "summary": "Show Radio Config"
+        },
+        {
+            "category": "Security",
+            "command": "show access-rule",
+            "command_id": 193,
+            "summary": "Show Access Rule"
+        },
+        {
+            "category": "Security",
+            "command": "show ap debug stm-role",
+            "command_id": 194,
+            "summary": "Show AP Debug STM Role"
+        },
+        {
+            "category": "Cluster Security",
+            "command": "show ap dtls allowed-aps",
+            "command_id": 195,
+            "summary": "Show AP DTLS Allowed APS"
+        },
+        {
+            "category": "Cluster Security",
+            "command": "show ap dtls provisioned-neighlist",
+            "command_id": 196,
+            "summary": "Show AP DTLS Provisioned Neighlist"
+        },
+        {
+            "category": "Cluster Security",
+            "command": "show ap dtls ephemeral-neighlist",
+            "command_id": 197,
+            "summary": "Show AP DTLS Ephemeral Neighlist"
+        },
+        {
+            "category": "Security",
+            "command": "show ap machine-authcache",
+            "command_id": 198,
+            "summary": "Show AP Machine Authcache"
+        },
+        {
+            "category": "Security",
+            "command": "show ap debug pmk-sync-statistics",
+            "command_id": 199,
+            "summary": "Show AP Debug Pmk Sync Statistics"
+        },
+        {
+            "category": "Security",
+            "command": "show ap mpskcache",
+            "command_id": 200,
+            "summary": "Show AP Mpskcache"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ata endpoint",
+            "command_id": 201,
+            "summary": "Show Ata Endpoint"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ata counters",
+            "command_id": 202,
+            "summary": "Show Ata Counters"
+        },
+        {
+            "category": "Overlay",
+            "command": "show overlay tunnel config",
+            "command_id": 203,
+            "summary": "Show Overlay Tunnel Config"
+        },
+        {
+            "category": "Overlay",
+            "command": "show overlay bucketmap status",
+            "command_id": 204,
+            "summary": "Show Overlay Bucketmap Status"
+        },
+        {
+            "category": "Overlay",
+            "command": "show overlay multicast-vlan",
+            "command_id": 205,
+            "summary": "Show Overlay Multicast Vlan"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ap debug c2c-nodes",
+            "command_id": 206,
+            "summary": "Show AP Debug C2C Nodes"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ap debug stm-bucketmap",
+            "command_id": 207,
+            "summary": "Show AP Debug Stm Bucketmap"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ata current-cfg",
+            "command_id": 208,
+            "summary": "Show Ata Current CFG"
+        },
+        {
+            "category": "Security",
+            "command": "show dpi debug status",
+            "command_id": 210,
+            "summary": "Show DPI Debug Status"
+        },
+        {
+            "category": "Security",
+            "command": "show datapath session dpi",
+            "command_id": 211,
+            "summary": "Show Datapath Session DPI"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug client-mgmt-counters",
+            "command_id": 212,
+            "summary": "Show AP Debug Client Mgmt Counters"
+        },
+        {
+            "category": "System",
+            "command": "show image version",
+            "command_id": 213,
+            "summary": "Show Image Version"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath session ucc",
+            "command_id": 214,
+            "summary": "Show Datapath Session UCC"
+        },
+        {
+            "category": "Overlay",
+            "command": "show overlay cluster-info",
+            "command_id": 215,
+            "summary": "Show Overlay Cluster-info"
+        },
+        {
+            "category": "Central",
+            "command": "aaa test-server AS1_#guest#_ username admin password admin auth-type pap",
+            "command_id": 216,
+            "summary": "Cloud Guest Server AS1_#guest#_ Check"
+        },
+        {
+            "category": "Central",
+            "command": "aaa test-server AS2_#guest#_ username admin password admin auth-type pap",
+            "command_id": 217,
+            "summary": "Cloud Guest Server AS2_#guest#_ Check"
+        },
+        {
+            "category": "Overlay",
+            "command": "show overlay ssid-cluster status",
+            "command_id": 218,
+            "summary": "Show Overlay SSID Cluster Status"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ap debug stm-cluster node-msg-history",
+            "command_id": 219,
+            "summary": "Show AP Debug Stm Cluster Node Msg History"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ap debug stm-cluster bucketmap-msg-history",
+            "command_id": 220,
+            "summary": "Show AP Debug Stm Cluster Bucketmap Msg History"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ap debug stm-cluster mapping-msg-history",
+            "command_id": 221,
+            "summary": "Show AP Debug Stm Cluster Mapping Msg History"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d status",
+            "command_id": 222,
+            "summary": "Show L3D Status"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d protocols",
+            "command_id": 223,
+            "summary": "Show L3D Protocols"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d route",
+            "command_id": 224,
+            "summary": "Show L3D Route"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d static",
+            "command_id": 225,
+            "summary": "Show L3D Static"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d oap adv",
+            "command_id": 226,
+            "summary": "Show L3D OAP Adv"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d oap routes",
+            "command_id": 227,
+            "summary": "Show L3D OAP Routes"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d memory",
+            "command_id": 228,
+            "summary": "Show L3D Memory"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d interfaces",
+            "command_id": 229,
+            "summary": "Show L3D Interfaces"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d symbols",
+            "command_id": 230,
+            "summary": "Show L3D Symbols"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d appproto",
+            "command_id": 231,
+            "summary": "Show L3D Appproto"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d appproto map_table",
+            "command_id": 232,
+            "summary": "Show L3D Appproto Map Table"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d appproto nodes",
+            "command_id": 233,
+            "summary": "Show L3D Appproto Nodes"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d appproto routes",
+            "command_id": 234,
+            "summary": "Show L3D Appproto Routes"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d appproto stats",
+            "command_id": 235,
+            "summary": "Show L3D Appproto Stats"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d appproto tunnels",
+            "command_id": 236,
+            "summary": "Show L3D Appproto Tunnels"
+        },
+        {
+            "category": "Security",
+            "command": "show cert all",
+            "command_id": 237,
+            "summary": "Show Cert All"
+        },
+        {
+            "category": "Security",
+            "command": "show ap cacert",
+            "command_id": 238,
+            "summary": "Show AP Cacert"
+        },
+        {
+            "category": "ARM",
+            "command": "show ap debug airmatch channels",
+            "command_id": 239,
+            "summary": "Show AP Debug Airmatch Channelst"
+        },
+        {
+            "category": "ARM",
+            "command": "show ap debug airmatch feasibility",
+            "command_id": 240,
+            "summary": "Show AP Debug Airmatch Feasibility"
+        },
+        {
+            "category": "ARM",
+            "command": "show ap debug airmatch nbr",
+            "command_id": 241,
+            "summary": "Show AP Debug Airmatch NBR"
+        },
+        {
+            "category": "ARM",
+            "command": "show ap debug airmatch provision data",
+            "command_id": 242,
+            "summary": "Show AP Debug Airmatch Provision Data"
+        },
+        {
+            "category": "ARM",
+            "command": "show ap debug airmatch radio",
+            "command_id": 243,
+            "summary": "Show AP Debug Airmatch Radio"
+        },
+        {
+            "category": "ARM",
+            "command": "show ap debug airmatch report",
+            "command_id": 244,
+            "summary": "Show AP Debug Airmatch Report"
+        },
+        {
+            "category": "ARM",
+            "command": "show ap debug airmatch status",
+            "command_id": 245,
+            "summary": "Show AP Debug Airmatch Status"
+        },
+        {
+            "category": "ARM",
+            "command": "show ap debug airmatch provision history",
+            "command_id": 246,
+            "summary": "Show AP Debug Airmatch Provision History"
+        },
+        {
+            "category": "System",
+            "command": "show upgrade info",
+            "command_id": 247,
+            "summary": "AP Upgrade Info"
+        },
+        {
+            "category": "Security",
+            "command": "show ids-detection",
+            "command_id": 248,
+            "summary": "Show IDS Detection"
+        },
+        {
+            "category": "Security",
+            "command": "show ids-protection",
+            "command_id": 249,
+            "summary": "Show IDS Protection"
+        },
+        {
+            "category": "Security",
+            "command": "show vpn config",
+            "command_id": 250,
+            "summary": "Show VPN Config"
+        },
+        {
+            "category": "Network",
+            "command": "show dhcps",
+            "command_id": 251,
+            "summary": "Show DHCPS"
+        },
+        {
+            "category": "UCC",
+            "command": "show ucm cdrs",
+            "command_id": 252,
+            "summary": "Show UCM CDRS"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath dns-ip-learning",
+            "command_id": 253,
+            "summary": "Show Datapath DNS IP Learning"
+        },
+        {
+            "category": "UCC",
+            "command": "show wificall-dns-patterns",
+            "command_id": 254,
+            "summary": "Show Wificall DNS Patterns"
+        },
+        {
+            "category": "Central",
+            "command": "show ap debug subscribe",
+            "command_id": 255,
+            "summary": "Show AP Debug Subscribe"
+        },
+        {
+            "category": "Central",
+            "command": "show ap debug subscribe-event-statistics",
+            "command_id": 256,
+            "summary": "Show AP Debug Subscribe Event Statistics"
+        },
+        {
+            "category": "Wireless",
+            "command": "show clients debug advanced",
+            "command_id": 257,
+            "summary": "Show Clients Debug Advanced"
+        },
+        {
+            "category": "Datapath",
+            "command": "show netdestination",
+            "command_id": 258,
+            "summary": "Show Netdestination"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath netdest id",
+            "command_id": 259,
+            "summary": "Show Datapath Netdest ID"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath vlan mcast",
+            "command_id": 260,
+            "summary": "Show Datapath Vlan Mcast"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show dhcp opt82 xml-config",
+            "command_id": 261,
+            "summary": "Show DHCP OPT82 Xml Config"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show dhcp opt82",
+            "command_id": 262,
+            "summary": "Show DHCP OPT82"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d oap",
+            "command_id": 263,
+            "summary": "Show L3D OAP"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d oap prefix",
+            "command_id": 264,
+            "summary": "Show L3D OAP Prefix"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d oap tunnel",
+            "command_id": 265,
+            "summary": "Show L3D OAP Tunnel"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d route all",
+            "command_id": 266,
+            "summary": "Show L3D Route All"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show routing-profile",
+            "command_id": 267,
+            "summary": "Show Routing Profile"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show ata endpoint status",
+            "command_id": 268,
+            "summary": "Show ATA Endpoint Status"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show ap debug cli-ipsecmap",
+            "command_id": 269,
+            "summary": "Show AP Debug CLI IPSec map"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show dhcp subnets",
+            "command_id": 270,
+            "summary": "show dhcp subnets"
+        },
+        {
+            "category": "Datapath",
+            "command": "show app-monitoring list",
+            "command_id": 271,
+            "summary": "Show App Monitoring List"
+        },
+        {
+            "category": "Datapath",
+            "command": "show ap debug airslice client stats",
+            "command_id": 272,
+            "summary": "Show AP Debug Airslice Client Stats"
+        },
+        {
+            "category": "IoT",
+            "command": "show usb-enet",
+            "command_id": 273,
+            "summary": "Show Usb Enet"
+        },
+        {
+            "category": "Clarity",
+            "command": "show clarity config",
+            "command_id": 274,
+            "summary": "Show Clarity Config"
+        },
+        {
+            "category": "Clarity",
+            "command": "show clarity history auth",
+            "command_id": 275,
+            "summary": "Show Clarity History Auth"
+        },
+        {
+            "category": "Clarity",
+            "command": "show clarity history dhcp",
+            "command_id": 276,
+            "summary": "Show Clarity History DHCP"
+        },
+        {
+            "category": "Clarity",
+            "command": "show clarity history dns",
+            "command_id": 277,
+            "summary": "Show Clarity History DNS"
+        },
+        {
+            "category": "Clarity",
+            "command": "show clarity history sta",
+            "command_id": 278,
+            "summary": "Show Clarity History STA"
+        },
+        {
+            "category": "Clarity",
+            "command": "show clarity history sta-dns",
+            "command_id": 279,
+            "summary": "Show Clarity History STA DNS"
+        },
+        {
+            "category": "Clarity",
+            "command": "show clarity stats",
+            "command_id": 280,
+            "summary": "Show Clarity Stats"
+        },
+        {
+            "category": "Central",
+            "command": "show ap debug cloud-domain-list",
+            "command_id": 281,
+            "summary": "Show AP Debug Cloud Domain List"
+        },
+        {
+            "category": "Central",
+            "command": "show ap debug cloud-pingpong-stats",
+            "command_id": 282,
+            "summary": "Show AP Debug Cloud Pingpong Stats"
+        },
+        {
+            "category": "Central",
+            "command": "show ap debug cloud-restore-status",
+            "command_id": 283,
+            "summary": "Show AP Debug Cloud Restore Status"
+        },
+        {
+            "category": "Network",
+            "command": "show port-bonding",
+            "command_id": 284,
+            "summary": "Show Port Bonding"
+        },
+        {
+            "category": "Network",
+            "command": "show port-bonding status",
+            "command_id": 285,
+            "summary": "Show Port Bonding Status"
+        },
+        {
+            "category": "Network",
+            "command": "show proxy",
+            "command_id": 286,
+            "summary": "Show Proxy"
+        },
+        {
+            "category": "Network",
+            "command": "show proxy config",
+            "command_id": 287,
+            "summary": "Show Proxy Config"
+        },
+        {
+            "category": "Security",
+            "command": "show ip interface tunnel",
+            "command_id": 288,
+            "summary": "Show IP Interface Tunnel"
+        },
+        {
+            "category": "Network",
+            "command": "show ap debug lldp neighbor interface",
+            "command_id": 289,
+            "summary": "Show AP Debug LLDP Neighbor Interface"
+        },
+        {
+            "category": "Network",
+            "command": "show ap debug lldp info",
+            "command_id": 290,
+            "summary": "Show AP Debug LLDP Info"
+        },
+        {
+            "category": "Network",
+            "command": "show ap debug lldp counters",
+            "command_id": 291,
+            "summary": "Show AP Debug LLDP Counters"
+        },
+        {
+            "category": "Network",
+            "command": "show ap debug lldp state",
+            "command_id": 292,
+            "summary": "Show AP Debug LLDP State"
+        },
+        {
+            "category": "AP Routing",
+            "command": "show l3d appproto clusters",
+            "command_id": 293,
+            "summary": "Show L3D Appproto Clusters"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ata uplink",
+            "command_id": 294,
+            "summary": "Show ATA Uplink"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ata uplink status",
+            "command_id": 295,
+            "summary": "Show ATA Uplink Status"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ata config-history",
+            "command_id": 296,
+            "summary": "Show ATA Config History"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ata report-msg-history",
+            "command_id": 298,
+            "summary": "Show ATA Report Msg History"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ata state-transition-history",
+            "command_id": 299,
+            "summary": "Show ATA State Transition History"
+        },
+        {
+            "category": "Overlay",
+            "command": "show crypto ipsec stats",
+            "command_id": 300,
+            "summary": "Show Crypto IPSec Stats"
+        },
+        {
+            "category": "Overlay",
+            "command": "show crypto-local ipsec-map",
+            "command_id": 301,
+            "summary": "Show Crypto Local IPSec Map"
+        },
+        {
+            "category": "Overlay",
+            "command": "show crypto isakmp dpd",
+            "command_id": 302,
+            "summary": "Show Crypto Isakmp DPD"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ap debug sapd-cluster bucketmap-history",
+            "command_id": 303,
+            "summary": "Show AP Debug SAPD Cluster Bucketmap History"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ap debug sapd-cluster failover-history",
+            "command_id": 304,
+            "summary": "Show AP Debug SAPD Cluster Failover History"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ap debug sapd-cluster mapping-msg-history",
+            "command_id": 305,
+            "summary": "Show AP Debug SAPD Cluster Mapping Msg History"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ap debug sapd-cluster nodelist-history",
+            "command_id": 306,
+            "summary": "Show AP Debug SAPD Cluster Nodelist History"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ap debug sapd-cluster rebootstrap-history",
+            "command_id": 307,
+            "summary": "Show AP Debug SAPD Cluster Rebootstrap History"
+        },
+        {
+            "category": "Overlay",
+            "command": "show ap debug sapd-cluster tun-status-history",
+            "command_id": 308,
+            "summary": "Show AP Debug SAPD Cluster Tun Status History"
+        },
+        {
+            "category": "HCM",
+            "command": "show hcm probe-profile",
+            "command_id": 309,
+            "summary": "Show HCM Probe Profile"
+        },
+        {
+            "category": "HCM",
+            "command": "show hcm vlaninfo",
+            "command_id": 310,
+            "summary": "Show HCM Vlan Info"
+        },
+        {
+            "category": "HCM",
+            "command": "show hcm nhinfo",
+            "command_id": 311,
+            "summary": "Show HCM NH Info"
+        },
+        {
+            "category": "HCM",
+            "command": "show hcm vpncinfo",
+            "command_id": 312,
+            "summary": "Show HCM VPNC Info"
+        },
+        {
+            "category": "HCM",
+            "command": "show hcm probe-node",
+            "command_id": 313,
+            "summary": "Show HCM Probe Node"
+        },
+        {
+            "category": "HCM",
+            "command": "show hcm telemetry-report counter",
+            "command_id": 314,
+            "summary": "Show HCM Telemetry Report Counter"
+        },
+        {
+            "category": "HCM",
+            "command": "show hcm telemetry-report unreported-details",
+            "command_id": 315,
+            "summary": "Show HCM Telemetry Report Unreported Details"
+        },
+        {
+            "category": "System",
+            "command": "show ip redirect-domain",
+            "command_id": 316,
+            "summary": "Show IP Redirect Domain"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath dpi-classification-cache",
+            "command_id": 317,
+            "summary": "Show Datapath DPI Classification Cache"
+        },
+        {
+            "category": "Security",
+            "command": "show dpi-classification-cache",
+            "command_id": 318,
+            "summary": "Show DPI Classification Cache"
+        },
+        {
+            "category": "System",
+            "command": "show port status details",
+            "command_id": 319,
+            "summary": "Show Port Status Details"
+        },
+        {
+            "category": "Network",
+            "command": "show vlan",
+            "command_id": 320,
+            "summary": "Show VLAN"
+        },
+        {
+            "category": "System",
+            "command": "show ap debug core-info",
+            "command_id": 321,
+            "summary": "Show AP Debug Core Info"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath device",
+            "command_id": 322,
+            "summary": "Show Datapath Device"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath bwm-table",
+            "command_id": 323,
+            "summary": "Show Datapath BWM Table"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath subnet",
+            "command_id": 324,
+            "summary": "Show Datapath Subnet"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug radio-info 0",
+            "command_id": 325,
+            "summary": "Show AP Debug Radio Info 0"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug radio-info 1",
+            "command_id": 326,
+            "summary": "Show AP Debug Radio Info 1"
+        },
+        {
+            "category": "Routing",
+            "command": "show access list",
+            "command_id": 327,
+            "summary": "Show Access List"
+        },
+        {
+            "category": "Logs",
+            "command": "show log provision",
+            "command_id": 328,
+            "summary": "Show Log Provision"
+        },
+        {
+            "category": "Routing",
+            "command": "show ip nexthop list",
+            "command_id": 329,
+            "summary": "Show IP Nexthop List"
+        },
+        {
+            "category": "Routing",
+            "command": "show ip nexthop-list-details",
+            "command_id": 330,
+            "summary": "Show IP Nexthop List Details"
+        },
+        {
+            "category": "Datapath",
+            "command": "show datapath nexthop list",
+            "command_id": 333,
+            "summary": "Show Datapath Nexthop List"
+        },
+        {
+            "category": "Network",
+            "command": "show ddns",
+            "command_id": 335,
+            "summary": "Show DDNS"
+        },
+        {
+            "category": "Flow Offload",
+            "command": "show flow-offload status",
+            "command_id": 336,
+            "summary": "Show Flow Offload Status"
+        },
+        {
+            "category": "Flow Offload",
+            "command": "show ap debug flow-offload bom",
+            "command_id": 337,
+            "summary": "Show AP flow-offload IPv4 BOM table"
+        },
+        {
+            "category": "Flow Offload",
+            "command": "show ap debug flow-offload bom ipv6",
+            "command_id": 338,
+            "summary": "Show AP flow-offload IPv6 BOM table"
+        },
+        {
+            "category": "Flow Offload",
+            "command": "show ap debug flow-offload sfe",
+            "command_id": 339,
+            "summary": "Show AP flow-offload SFE IPv4 Debug Table"
+        },
+        {
+            "category": "Flow Offload",
+            "command": "show ap debug flow-offload sfe ipv6",
+            "command_id": 340,
+            "summary": "Show AP flow-offload SFE IPv6 Debug Table"
+        },
+        {
+            "category": "Flow Offload",
+            "command": "show ap debug flow-offload uol",
+            "command_id": 341,
+            "summary": "Show AP flow-offload IPv4 UOL Table"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup discover cache servers",
+            "command_id": 343,
+            "summary": "Show Airgroup Discover Cache Servers"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup central cache servers",
+            "command_id": 344,
+            "summary": "Show Airgroup Central Cache Servers"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup discover cache entries",
+            "command_id": 345,
+            "summary": "Show Airgroup Discover Cache Entries"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup central cache entries",
+            "command_id": 346,
+            "summary": "Show Airgroup Central Cache Entries"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup discover cache",
+            "command_id": 347,
+            "summary": "Show Airgroup Discover Cache"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup central cache",
+            "command_id": 348,
+            "summary": "Show Airgroup Central Cache"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup discover-cache checksum_table",
+            "command_id": 349,
+            "summary": "Show Airgroup Discover Cache Checksum Table"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup central-cache checksum_table",
+            "command_id": 350,
+            "summary": "Show Airgroup Central Cache Checksum Table"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroupservice disallow role",
+            "command_id": 351,
+            "summary": "Show Airgroupservice Disallow Role"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroupservice disallow vlan",
+            "command_id": 352,
+            "summary": "Show Airgroupservice Disallow Vlan"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup service ids",
+            "command_id": 353,
+            "summary": "Show Airgroup Service IDs"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup blocked service id",
+            "command_id": 354,
+            "summary": "Show Airgroup Blocked Service Id"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup blocked queries",
+            "command_id": 355,
+            "summary": "Show Airgroup Blocked Queries"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup users",
+            "command_id": 356,
+            "summary": "Show Airgroup Users"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup service",
+            "command_id": 357,
+            "summary": "Show Airgroup Service"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup debug log",
+            "command_id": 358,
+            "summary": "Show Airgroup Debug Log"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup global policy",
+            "command_id": 359,
+            "summary": "Show Airgroup Global Policy"
+        },
+        {
+            "category": "Airgroup",
+            "command": "show airgroup wired servers",
+            "command_id": 360,
+            "summary": "Show Airgroup Wired Servers"
+        },
+        {
+            "category": "DPP",
+            "command": "show dpp status",
+            "command_id": 361,
+            "summary": "Show DPP Status"
+        },
+        {
+            "category": "DPP",
+            "command": "show dpp counters",
+            "command_id": 362,
+            "summary": "Show DPP Counters"
+        },
+        {
+            "category": "DPP",
+            "command": "show dpp bootstrap-info",
+            "command_id": 363,
+            "summary": "Show DPP Bootstrap-Info"
+        },
+        {
+            "category": "DPP",
+            "command": "show ap dpp cache",
+            "command_id": 364,
+            "summary": "Show AP DPP Cache"
+        },
+        {
+            "category": "System",
+            "command": "show audit-trail",
+            "command_id": 365,
+            "summary": "Show Audit-Trail"
+        },
+        {
+            "category": "Wireless",
+            "command": "ap radio stats",
+            "command_id": 366,
+            "summary": "AP Radio Stats"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug radio info",
+            "command_id": 367,
+            "summary": "Show AP Debug Radio Info"
+        },
+        {
+            "category": "System",
+            "command": "show amp-audit",
+            "command_id": 368,
+            "summary": "Show Amp-Audit"
+        },
+        {
+            "category": "System",
+            "command": "show tech-support supplemental",
+            "command_id": 369,
+            "summary": "Show Tech-Support Supplemental"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug radio-info 2",
+            "command_id": 370,
+            "summary": "Show AP Debug Radio Info 2"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug radio-stats 2",
+            "command_id": 371,
+            "summary": "AP Radio 2 Stats"
+        },
+        {
+            "category": "IoT",
+            "command": "show iot radio-profile",
+            "command_id": 372,
+            "summary": "Show Radio Profile For BLE And/Or Zigbee"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug iot-radio-devices",
+            "command_id": 373,
+            "summary": "Show Radios For IoT"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug iot-radio-counters",
+            "command_id": 374,
+            "summary": "Show Counters For Radios"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug ble-config",
+            "command_id": 375,
+            "summary": "Show Configuration/status On AP Side"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug ble-firmware-upgrade-info",
+            "command_id": 376,
+            "summary": "Show BLE Upgrade Info"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug ble-table all",
+            "command_id": 377,
+            "summary": "show BLE Table Of Devices"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug ble-counters",
+            "command_id": 378,
+            "summary": "Show BLE Packet Counter"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug ble-session-status",
+            "command_id": 379,
+            "summary": "show BLE session information"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug ble-action-status",
+            "command_id": 380,
+            "summary": "Show Action Status For BLE Devices"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug ble-input-filter-stats",
+            "command_id": 381,
+            "summary": "Show Input Filter On BLE Table"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug ble-advertisement-info",
+            "command_id": 382,
+            "summary": "Show BLE Advertisement Info"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug ble-daemon",
+            "command_id": 383,
+            "summary": "Show BLE Daemon Logs"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug ble-relay iot-profile",
+            "command_id": 384,
+            "summary": "Show IoT Transport Details"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug ble-relay report",
+            "command_id": 385,
+            "summary": "Show BLE Relay Logs"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug zigbee radio-table",
+            "command_id": 386,
+            "summary": "Show ZigBee Radio Table"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug zigbee client-table",
+            "command_id": 387,
+            "summary": "Show ZigBeeclient Table"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug zigbee client-table stats",
+            "command_id": 388,
+            "summary": "Show ZigBee Statistics For Clients"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug zigbee socket-table",
+            "command_id": 389,
+            "summary": "Show Socket Created By ZSD Or Assa Abloy, If Configured"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug zigbee packet-trail",
+            "command_id": 390,
+            "summary": "show ZigBee Packet Trail"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug zigbee event-trail",
+            "command_id": 391,
+            "summary": "show ZigBee Event Trail"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug zigbee topology",
+            "command_id": 392,
+            "summary": "Show ZigBee Topology"
+        },
+        {
+            "category": "IoT",
+            "command": "show zigbee service configuration",
+            "command_id": 393,
+            "summary": "Show ZigBee Service Configuration"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug usb-device-mgmt device all",
+            "command_id": 394,
+            "summary": "Show All USB Devices Connected To This AP"
+        },
+        {
+            "category": "IoT",
+            "command": "show detail for usb devices",
+            "command_id": 395,
+            "summary": "Show Detail For USB Devices"
+        },
+        {
+            "category": "IoT",
+            "command": "show interface for usb devices",
+            "command_id": 396,
+            "summary": "Show Interface For USB Devices"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug usb-device-mgmt rule all",
+            "command_id": 397,
+            "summary": "Show Rule Debugging For USB Devices"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug usb-device-mgmt plugin all",
+            "command_id": 398,
+            "summary": "Show Plugin Information For USB Devices"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug usb-enet",
+            "command_id": 399,
+            "summary": "Show Device Details For Ethernet Over USB Dongles"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug usb-enet client",
+            "command_id": 400,
+            "summary": "Show Client Details For Ethernet Over USB Dongles"
+        },
+        {
+            "category": "IoT",
+            "command": "show usb-enet client",
+            "command_id": 401,
+            "summary": "Show Client Details For Ethernet Over USB Dongles (Core Module)"
+        },
+        {
+            "category": "IoT",
+            "command": "show iot transportProfile",
+            "command_id": 402,
+            "summary": "Show Details Of IoT Transport Profiles"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug iot-audit-trail command-history",
+            "command_id": 403,
+            "summary": "Show Trail For Commands Executed"
+        },
+        {
+            "category": "IoT",
+            "command": "show ap debug iot-audit-trail ble-action",
+            "command_id": 404,
+            "summary": "Show Audit Trail For BLE SB APIs"
+        },
+        {
+            "category": "Logs",
+            "command": "show log event to cloud",
+            "command_id": 405,
+            "summary": "show log event to cloud"
+        },
+        {
+            "category": "Logs",
+            "command": "show log iap-bootup",
+            "command_id": 406,
+            "summary": "show log iap-bootup"
+        },
+        {
+            "category": "System",
+            "command": "show ap power-mgmt-statistics",
+            "command_id": 407,
+            "summary": "Show IPM power management status"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug lte-status",
+            "command_id": 408,
+            "summary": "Show Ap Debug Lte Status"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug lte-status-history",
+            "command_id": 409,
+            "summary": "Show Ap Debug Lte Status History"
+        },
+        {
+            "category": "Services",
+            "command": "show ddns-profile",
+            "command_id": 410,
+            "summary": "Ddns Profile"
+        },
+        {
+            "category": "Central",
+            "command": "show log state to cloud cluster",
+            "command_id": 411,
+            "summary": "Show Log State To Cloud Cluster"
+        },
+        {
+            "category": "Central",
+            "command": "show log state to cloud wlan",
+            "command_id": 412,
+            "summary": "Show Log State To Cloud Wlan"
+        },
+        {
+            "category": "Central",
+            "command": "show log state to cloud ap",
+            "command_id": 413,
+            "summary": "Show Log State To Cloud AP"
+        },
+        {
+            "category": "Central",
+            "command": "show log state to cloud client",
+            "command_id": 414,
+            "summary": "Show Log State To Cloud Client"
+        },
+        {
+            "category": "Central",
+            "command": "show log state to cloud vpntunnel",
+            "command_id": 415,
+            "summary": "Show Log State To Cloud VpnTunnel"
+        },
+        {
+            "category": "Central",
+            "command": "show log state to cloud dynamic denylist client",
+            "command_id": 416,
+            "summary": "Show Log State To Cloud Dynamic Denylist Client"
+        },
+        {
+            "category": "Central",
+            "command": "show log stats to cloud radio",
+            "command_id": 417,
+            "summary": "Show Log Stats To Cloud Radio"
+        },
+        {
+            "category": "Central",
+            "command": "show log stats to cloud vap",
+            "command_id": 418,
+            "summary": "Show Log Stats To Cloud Vap"
+        },
+        {
+            "category": "Central",
+            "command": "show log stats to cloud port",
+            "command_id": 419,
+            "summary": "Show Log Stats To Cloud Port"
+        },
+        {
+            "category": "Central",
+            "command": "show log stats to cloud client",
+            "command_id": 420,
+            "summary": "Show Log Stats To Cloud Client"
+        },
+        {
+            "category": "Central",
+            "command": "show log stats to cloud airmonitor",
+            "command_id": 421,
+            "summary": "Show Log Stats To Cloud Airmonitor"
+        },
+        {
+            "category": "Central",
+            "command": "show log stats to cloud spectrum",
+            "command_id": 422,
+            "summary": "Show Log Stats To Cloud Spectrum"
+        },
+        {
+            "category": "Central",
+            "command": "show log stats to cloud alb",
+            "command_id": 423,
+            "summary": "Show Log Stats To Cloud Alb"
+        },
+        {
+            "category": "Central",
+            "command": "show log stats to cloud tunnel",
+            "command_id": 424,
+            "summary": "Show Log Stats To Cloud Tunnel"
+        },
+        {
+            "category": "Central",
+            "command": "show log stats to cloud modem",
+            "command_id": 425,
+            "summary": "Show Log Stats To Cloud Modem"
+        },
+        {
+            "category": "Central",
+            "command": "show log stats to cloud ssid",
+            "command_id": 426,
+            "summary": "Show Log Stats To Cloud Ssid"
+        },
+        {
+            "category": "Central",
+            "command": "show log stats to cloud vlan",
+            "command_id": 427,
+            "summary": "Show Log Stats To Cloud Vlan"
+        },
+        {
+            "category": "Central",
+            "command": "show log stats to cloud role",
+            "command_id": 428,
+            "summary": "Show Log Stats To Cloud Role"
+        },
+        {
+            "category": "Central",
+            "command": "show log stats to cloud tunnelipprobe",
+            "command_id": 429,
+            "summary": "Show Log Stats To Cloud Tunnelipprobe"
+        },
+        {
+            "category": "Central",
+            "command": "show log stats to cloud meshlink",
+            "command_id": 430,
+            "summary": "Show Log Stats To Cloud Meshlink"
+        },
+        {
+            "category": "Central",
+            "command": "show log stats to cloud authserver",
+            "command_id": 431,
+            "summary": "Show Log Stats To Cloud Authserver"
+        },
+        {
+            "category": "Central",
+            "command": "show log stats to cloud ftmscan",
+            "command_id": 432,
+            "summary": "Show Log Stats To Cloud Ftmscan"
+        },
+        {
+            "category": "Central",
+            "command": "show log stats to cloud hcm",
+            "command_id": 433,
+            "summary": "Show Log Stats To Cloud hcm"
+        },
+        {
+            "category": "Central",
+            "command": "show log state to cloud meshap",
+            "command_id": 434,
+            "summary": "Show Log State To Cloud meshap"
+        },
+        {
+            "category": "Central",
+            "command": "show log rssi to cloud rssi",
+            "command_id": 435,
+            "summary": "Show Log Rssi To Cloud Rssi"
+        },
+        {
+            "category": "Central",
+            "command": "show log rssi to cloud aprssi",
+            "command_id": 436,
+            "summary": "Show Log Rssi To Cloud Aprssi"
+        },
+        {
+            "category": "Central",
+            "command": "show log rssi to cloud clientrssi",
+            "command_id": 437,
+            "summary": "Show Log Rssi To Cloud Clientrssi"
+        },
+        {
+            "category": "DPP",
+            "command": "show dpp netaccess info",
+            "command_id": 438,
+            "summary": "Show Dpp Netaccess Info"
+        },
+        {
+            "category": "Network",
+            "command": "show ip dhcp vlan",
+            "command_id": 439,
+            "summary": "To Show The Helpers Configured Per Vlan"
+        },
+        {
+            "category": "System",
+            "command": "show log power-saving status",
+            "command_id": 440,
+            "summary": "Show Log Power Savings Status"
+        },
+        {
+            "category": "System",
+            "command": "show log power savings debug logs",
+            "command_id": 441,
+            "summary": "Show Log Power Savings Debug Logs"
+        },
+        {
+            "category": "Security",
+            "command": "show tacacs-servers",
+            "command_id": 442,
+            "summary": "show Tacacs Servers"
+        },
+        {
+            "category": "Security",
+            "command": "show ldap-servers",
+            "command_id": 443,
+            "summary": "show Ldap Servers"
+        },
+        {
+            "category": "Security",
+            "command": "show mpsk local profile",
+            "command_id": 444,
+            "summary": "show Mpsk Local Profile"
+        },
+        {
+            "category": "Security",
+            "command": "show firewall config",
+            "command_id": 445,
+            "summary": "Show Firewall Config"
+        },
+        {
+            "category": "Security",
+            "command": "show alg",
+            "command_id": 446,
+            "summary": "Show Alg"
+        },
+        {
+            "category": "Security",
+            "command": "show attack stats",
+            "command_id": 447,
+            "summary": "Show Attack Stats"
+        },
+        {
+            "category": "Security",
+            "command": "show attack config",
+            "command_id": 448,
+            "summary": "Show Attack Config"
+        },
+        {
+            "category": "Security",
+            "command": "show external captive portal",
+            "command_id": 449,
+            "summary": "Show External Captive Portal"
+        },
+        {
+            "category": "Wireless",
+            "command": "show ap debug dhcp pool",
+            "command_id": 450,
+            "summary": "Show Ap Debug Dhcp Pool"
+        }
+    ]
+}
