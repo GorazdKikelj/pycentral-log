@@ -1,1 +1,6 @@
 /pycentral-log.code-workspace
+/__pycache__
+/collect_data/__pycache__
+/collect_data/data
+/collect_data/log
+/token
