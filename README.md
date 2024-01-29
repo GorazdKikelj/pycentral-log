@@ -34,7 +34,7 @@ Setup:
 
 2. Create debug commans JSON file. Available command depend on device type. More detail can be found in Aruba Central Swagger Page. 
 Here is the example file to collect 
-'''
+```
 show tech-support
 show ap debug crash-info
 
@@ -62,11 +62,11 @@ show ap debug crash-info
         }
     ]
 }
-'''
+```
 
 3. Create filter JSON file, if you will select APs by event type
 
-'''
+```
 {
     "device_type": "ACCESS POINT",
     "sort": "-timestamp",
@@ -96,14 +96,14 @@ All filter fields:
     "fields": "string", comma separated list [number, level]
     "calculate_total": "boolean"
 }
-''' 
+``` 
 
 4. Create a csv file if you will select APs from CSV.
 
 
 ### Package structure
 
-'''
+```
 |   README.md
 |   Contrubutions.md
 |
@@ -129,9 +129,9 @@ All filter fields:
 --------docs
         |   ...
 
-'''
+```
 
-
+```
 usage: collect_data.py [-h] [--csv_input CSV_INPUT] [--csv_sn_column CSV_SN_COLUMN] 
                        [--csv_delimiter CSV_DELIMITER] [--json_central JSON_CENTRAL] 
                        [--json_filter JSON_FILTER] [--json_commands JSON_COMMANDS] 
@@ -165,3 +165,4 @@ options:
   --debug_level DEBUG_LEVEL
                         Set debul level to [NOTSET, DEBUG, INFO, WARNING, ERROR, CRITICAL]
 
+```
