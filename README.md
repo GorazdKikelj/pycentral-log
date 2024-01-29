@@ -199,7 +199,8 @@ $ python collect_data.py --csv_input="tab-input.csv" --csv_sn_column=2 --csv_del
 3. Default directory for returned data is data/
 4. Serial number is used for filename for device log results
 5. Summary event file event_list.txt is stored in log destination directory  
-6. --start_date and --end_date overwrite fields in filter.json 
+6. --start_date and --end_date overwrite fields in filter.json
+7. log and data directories are automatically created if does not exist
 
 ### Central Token JSON
 
@@ -232,6 +233,8 @@ When no header record exists in file, use the column number starting with 0.
 
 By default the column number is 0.
 
+Aruba Central GUI has an option to export events and devices in csv format. It use Tab character for delimiter. 
+
 Simple csv file example:
 
 input.csv
@@ -251,9 +254,9 @@ You can use --start_date and --end_date to limit events for selection regardless
 
 filter.json  
 
-    Use subset of fields to filter events. Fields from_timestamp and to_timestamp will be converted
-    to numeric timestamp. String representation in JSON file is for convenience.
-    More information can be found in Aruba Central Swagger.
+Use subset of fields to filter events. Fields from_timestamp and to_timestamp will be converted
+to numeric timestamp. String representation in JSON file is for convenience.
+More information can be found in Aruba Central Swagger.
 
 Example:
 ```
@@ -264,8 +267,10 @@ Example:
     "event_type": "AP Exception",
     "from_timestamp": "2024-01-10"
 }
+```
 
 All filter fields:
+```
 {
     "group": "string",
     "swarm_id": "string",
