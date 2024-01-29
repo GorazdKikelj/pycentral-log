@@ -221,6 +221,7 @@ central_info = {
     "username": "string",
     "password": "string",
 }
+
 ```
 
 ### CSV file device selection
@@ -235,7 +236,9 @@ By default the column number is 0.
 
 Aruba Central GUI has an option to export events and devices in csv format. It use Tab character for delimiter. 
 
-Simple csv file example:
+Date fields are ignored when using CSV file.
+
+csv file without a header line example:
 
 input.csv
 ```
@@ -244,7 +247,15 @@ CNAW111CC1
 
 ```
 
-Date fields are ignored when using CSV file.
+csv file with header line example:
+
+input-header.csv
+```
+NAME,DESCRIPTION,SERIAL,MODEL
+AP-01,AP-303-RW,CNNNWW10,AP-303
+
+```
+
 
 ###  Aruba Central Events device selection
 
@@ -267,6 +278,7 @@ Example:
     "event_type": "AP Exception",
     "from_timestamp": "2024-01-10"
 }
+
 ```
 
 All filter fields:
@@ -318,6 +330,7 @@ commands.json
             "command_id": 115,
             "summary": "AP Tech Support Dump"
         },
+
 ```
     
     Example commands.json file:
@@ -346,4 +359,5 @@ commands.json
         }
     ]
 }
+
 ```
