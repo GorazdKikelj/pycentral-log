@@ -19,9 +19,11 @@ More details about [Aruba Central REST API](https://developer.arubanetworks.com/
 
 Requirements:
 
+```
 icecream
 pycentral
 python_dateutil
+```
 
 Installation:
 
@@ -130,8 +132,10 @@ All filter fields:
         |   ...
 
 ```
-
+### Usage
 ```
+$ python collect_data.py --help
+
 usage: collect_data.py [-h] [--csv_input CSV_INPUT] [--csv_sn_column CSV_SN_COLUMN] 
                        [--csv_delimiter CSV_DELIMITER] [--json_central JSON_CENTRAL] 
                        [--json_filter JSON_FILTER] [--json_commands JSON_COMMANDS] 
@@ -165,4 +169,176 @@ options:
   --debug_level DEBUG_LEVEL
                         Set debul level to [NOTSET, DEBUG, INFO, WARNING, ERROR, CRITICAL]
 
+```
+### Examples
+
+Collect data from devices selected in Aruba Central by events defined in filter.json from start_date.
+
+```
+$ python collect_data.py --start_date="YYYY-MM-DD"
+
+```
+
+Collect data from devices listed in input.csv file, where colum name SERIAL is containing device serial numbers.
+
+```
+$ python collect_data.py --csv_input --csv_sn_column="SERIAL" 
+
+```
+
+Collect data from devices listed in tab-input.csv file, where delimiter is Tab and serial number is in column 3.
+
+```
+$ python collect_data.py --csv_input="tab-input.csv" --csv_sn_column=2 --csv_delimiter="\t"
+
+```
+### Limitations and notes
+
+1. Device type and debug commands need to match. Only one type of device can be used in a run.
+2. CSV and Event selections are mutally excluded. Only one type of device selection can be used on a run.
+3. Default directory for returned data is data/
+4. Serial number is used for filename for device log results
+5. Summary event file event_list.txt is stored in log destination directory  
+6. --start_date and --end_date overwrite fields in filter.json 
+
+### Central Token JSON
+
+central.json
+    Authorization data for REST API Gateway. 
+    Use token or username/password. Do not use both. 
+    
+```
+central_info = {
+    "token": {
+           "access_token": "string",
+            "refresh_token": "string",
+        },
+    "base_url": "url string",
+    "customer_id": "string",
+    "client_id": "string",
+    "client_secret": "string",
+    "username": "string",
+    "password": "string",
+}
+```
+
+### CSV file device selection
+
+CSV file need to contain serial number of the device. 
+
+When first record contain header information, provide column name in --csv_sn_column to select column with serial numbers.
+
+When no header record exists in file, use the column number starting with 0.
+
+By default the column number is 0.
+
+Simple csv file example:
+
+input.csv
+```
+CNNNA1SC90
+CNAW111CC1
+
+```
+
+Date fields are ignored when using CSV file.
+
+###  Aruba Central Events device selection
+
+Devices can be selected directly from Aruba Central based on the filter.json definition. filter.json contains
+events, dates, sort,.. and other parameters based on device type. 
+You can use --start_date and --end_date to limit events for selection regardless of the settings in json file.
+
+filter.json  
+
+    Use subset of fields to filter events. Fields from_timestamp and to_timestamp will be converted
+    to numeric timestamp. String representation in JSON file is for convenience.
+    More information can be found in Aruba Central Swagger.
+
+Example:
+```
+
+{
+    "device_type": "ACCESS POINT",
+    "sort": "-timestamp",
+    "event_type": "AP Exception",
+    "from_timestamp": "2024-01-10"
+}
+
+All filter fields:
+{
+    "group": "string",
+    "swarm_id": "string",
+    "label": "string",
+    "from_timestamp": "string YYYY MM DD hh:mm:ss", # it will be converted to int timestamp
+    "to_timestamp": "string YYYY MM DD hh:mm:ss", # it will be converted to int timestamp
+    "offset": integer,
+    "limit": integer,
+    "macaddr": "string",
+    "bssid": "string",
+    "hostname": "string",
+    "device_type": "string", ["ACCESS POINT", "SWITCH", "GATEWAY", "CLIENT"]
+    "sort": "string", ["-timestamp", "+timestamp"]
+    "site": "string",
+    "serial": "string",
+    "level": "string", ["normal", "positive", "negative",  ]
+    "event_description": "string",
+    "event_type": "string", ["AP Exception", "AP Offline", "AP Online", "Security", ...]
+    "fields": "string", comma separated list [number, level]
+    "calculate_total": "boolean"
+}
+
+```
+
+### Debug commands
+
+commands.json
+
+    List of debug commands sent to device.
+    List of commands is available in Swagger.
+    Use only commands appropriate for device type selected.
+
+    Example of debug commands from swagger:
+
+```
+        {
+            "category": "System",
+            "command": "show ap debug crash-info",
+            "command_id": 34,
+            "summary": "AP Crash Info"
+        },
+        {
+            "category": "System",
+            "command": "show tech-support",
+            "command_id": 115,
+            "summary": "AP Tech Support Dump"
+        },
+```
+    
+    Example commands.json file:
+```
+
+{
+    "device_type": "IAP",
+    "commands": [
+        {
+            "command_id": 115,
+            "arguments": [
+                {
+                    "name": "",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "command_id": 34,
+            "arguments": [
+                {
+                    "name": "",
+                    "value": ""
+                }
+            ]
+        }
+    ]
+}
 ```
