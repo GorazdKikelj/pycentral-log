@@ -1,41 +1,66 @@
-from logging import Logger, getLogger, basicConfig, NOTSET, INFO, DEBUG, WARNING, ERROR, CRITICAL
-from .utilities import check_path
+# -*- coding: utf-8 -*-
+"""
+    Author: Gorazd Kikelj
+    
+    gorazd.kikelj@gmail.com
+    
+"""
+from logging import Logger, getLogger, basicConfig
+from pathlib import Path
 
-C_LOG_DIR = "log/"
-check_path(C_LOG_DIR)
-
-logger: Logger = getLogger(__name__)
-basicConfig(
-    filename=f"{C_LOG_DIR}troubleshooting.log",
-    filemode="a",
-    format="%(asctime)s : %(levelname)s : %(module)s %(lineno)d : %(message)s",
-    level=INFO,
-)
-
-log_level: dict[str, int] = {
-    "NOTSET": NOTSET,
-    "DEBUG": DEBUG,
-    "INFO": INFO,
-    "WARNING": WARNING,
-    "ERROR": ERROR,
-    "CRITICAL": CRITICAL,
-}
+from collect_data import C_LOG_DIR, C_DEBUG_LEVEL
 
 
-def logwrite(msg: str, level: str) -> None:
-    if level == "NOTSET":
-        logger.log(msg, NOTSET)
-    elif level == "DEBUG":
+def _create_logger(log_directory: str) -> Logger:
+    Path(C_LOG_DIR).mkdir(parents=False, exist_ok=True)
+
+    logger: Logger = getLogger(__name__)
+
+    basicConfig(
+        filename=f"{log_directory}troubleshooting.log",
+        filemode="a",
+        format="%(asctime)s : %(levelname)s : %(module)s %(lineno)d : %(message)s",
+        level=C_DEBUG_LEVEL,
+    )
+
+    return logger
+
+
+logger = _create_logger(log_directory=C_LOG_DIR)
+
+
+class Log_Writer:
+    def __init__(self) -> None:
+        self.msg = None
+
+    def debug(self, msg) -> None:
         logger.debug(msg)
-    elif level == "INFO":
+        print(msg)
+        return None
+
+    def info(self, msg) -> None:
         logger.info(msg)
-    elif level == "WARNING":
+        print(msg)
+        return None
+
+    def warning(self, msg) -> None:
         logger.warning(msg)
-    elif level == "ERROR":
+        print(msg)
+        return None
+
+    def error(self, msg) -> None:
         logger.error(msg)
-    elif level == "CRITICAL":
-        logger.critical(msg)       
-    
-    return None
-    
-# logging.basicConfig(format='%(asctime)s : %(levelname)s : %(module)s %(lineno)d : %(process)d - %(thread)d : %(message)s', level=logging.DEBUG)
+        print(msg)
+        return None
+
+    def critical(self, msg) -> None:
+        logger.critical(msg)
+        print(msg)
+        return None
+
+    def setLevel(self, msg) -> None:
+        logger.setLevel(msg)
+        return None
+
+
+log_writer = Log_Writer()

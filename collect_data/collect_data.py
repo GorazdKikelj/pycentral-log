@@ -1,10 +1,30 @@
+# -*- coding: utf-8 -*-
+"""
+    Author: Gorazd Kikelj
+    
+    gorazd.kikelj@gmail.com
+    
+"""
 from datetime import datetime
 from time import sleep
-from lib.central import get_central_data, post_central_data, connect_to_central
-from lib.arguments import init_arguments
-#from icecream import ic
-from lib.utilities import create_filename
 
+try:
+    from . import C_EVENT_LIST
+except ImportError:
+    C_EVENT_LIST = "event_list.txt"
+
+try:
+    from .lib import (
+        get_central_data,
+        post_central_data,
+        connect_to_central,
+        log_writer,
+        create_filename,
+        init_arguments,
+    )
+except ImportError as err:
+    print(f"Package error:\n{err}")
+    exit()
 """
 
 Instructions:
@@ -114,8 +134,12 @@ ap_debug.json
 
 event_directory = ""
 
+"""
+Logger fuctions
+"""
 
-def get_events_from_central(central, event_filter, event_file="event_list.txt"):
+
+def get_events_from_central(central, event_filter, event_file=C_EVENT_LIST):
     aps = {}
     event_list = get_central_data(
         central=central, apipath="/monitoring/v2/events", apiparams=event_filter
@@ -132,7 +156,7 @@ def get_events_from_central(central, event_filter, event_file="event_list.txt"):
 
 
 def schedule_debug_command(central, serial_no, commands):
-    print(f"Scheduling debug commands for {serial_no}")
+    log_writer.info(f"Scheduling debug commands for {serial_no}")
     response = post_central_data(
         central=central,
         apipath=f"/troubleshooting/v1/devices/{serial_no}",
@@ -153,7 +177,7 @@ def get_debug_command_result(central, serial_no, session_id):
             apipath=f"/troubleshooting/v1/devices/{serial_no}",
             apiparams={"session_id": session_id},
         )
-        print(
+        log_writer.info(
             f"SN: {response.get('serial')} Session ID: {session_id} Status: {response.get('status')} Result: {response.get('message')}"
         )
         count += 1
@@ -166,7 +190,6 @@ def get_debug_command_result(central, serial_no, session_id):
 
 def save_debug_info(central, ap_list) -> dict:
     retry_session = {}
-    #    ic(ap_list)
     for row in ap_list:
         if not isinstance(ap_list[row], int):
             continue
@@ -189,7 +212,7 @@ def save_debug_info(central, ap_list) -> dict:
 
 
 def retry_collect_debug_data(central, retry_session):
-    print(f"Total debug APs to retry: {len(retry_session)}")
+    log_writer.info(f"Total debug APs to retry: {len(retry_session)}")
     if len(retry_session) > 0:
         retry_session = save_debug_info(central=central, ap_list=retry_session)
 
@@ -201,7 +224,7 @@ def collect_debug_data(central, serial_list, commands_json):
         serial_list[row] = schedule_debug_command(
             central=central, serial_no=row, commands=commands_json
         )
-    print(f"Total debug APs requested: {len(serial_list)}")
+    log_writer.info(f"Total debug APs requested: {len(serial_list)}")
 
     if len(serial_list) > 0:
         retry_collect_debug_data(
@@ -237,8 +260,12 @@ def run_collection():
         serial_list=serial_list,
         commands_json=params.get("debug_command"),
     )
-    return central
+    return None
+
+
+def main():
+    run_collection()
 
 
 if __name__ == "__main__":
-    run_collection()
+    main()

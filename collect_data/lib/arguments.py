@@ -1,33 +1,37 @@
+# -*- coding: utf-8 -*-
+"""
+    Author: Gorazd Kikelj
+    
+    gorazd.kikelj@gmail.com
+    
+"""
 import argparse
-import json
 import sys
-from .logconfig import logger, log_level
-from .utilities import (
+from datetime import datetime
+from dateutil import parser
+from logging import getLevelName
+
+
+from collect_data import (
+    C_DEBUG_LEVEL,
+    C_EVENT_LIST,
+    C_DATA_DIR,
+    C_CSV_DELIMITER,
+    C_CSV_SN_COLUMN,
+    C_JSON_CENTRAL,
+    C_JSON_COMMANDS,
+    C_JSON_FILTER,
+    C_REQUIRED_KEYS,
+)
+
+from . import (
     get_ap_list_from_csv,
     get_debug_commands_from_json,
     get_filter_from_json,
     get_central_from_json,
     check_path,
+    log_writer,
 )
-from datetime import datetime
-from dateutil import parser
-
-C_TOPIC_CUSTOMER = [
-    "token",
-    "access_token",
-    "refresh_token",
-    "base_url",
-    "customer_id",
-    "client_id",
-    "client_secret",
-    "username",
-    "password",
-]
-C_TOPIC_COMMANDS = ["device_type", "commands", "command_id", "arguments"]
-
-C_REQUIRED_KEYS = ["central_info", "debug_command", "event_file"]
-
-C_DATA_DIR = "data/"
 
 
 def define_arguments():
@@ -53,39 +57,39 @@ def define_arguments():
         required=False,
         help="Column # or name where device Serial number is stored. \
                         (optional, default=0)",
-        default=0,
+        default=C_CSV_SN_COLUMN,
     )
     parser.add_argument(
         "--csv_delimiter",
         required=False,
         help="Column delimiter (optional, default=',')",
-        default=",",
+        default=C_CSV_DELIMITER,
     )
 
     parser.add_argument(
         "--json_central",
         required=False,
         help="JSON file with Aruba Central Access Token (Optional, default=central.json)",
-        default="central.json",
+        default=C_JSON_CENTRAL,
     )
     parser.add_argument(
         "--json_filter",
         required=False,
         help="JSON file with device select filter (optional, default=filter.json)",
-        default="filter.json",
+        default=C_JSON_FILTER,
     )
     parser.add_argument(
         "--json_commands",
         required=False,
         help="JSON file with list of commands to execute for each device \
                         (optional, default=commands.json)",
-        default="commands.json",
+        default=C_JSON_COMMANDS,
     )
     parser.add_argument(
         "--event_list",
         required=False,
         help="Summary Output of all events (optional, default=event_list.txt)",
-        default="event_list.txt",
+        default=C_EVENT_LIST,
     )
     parser.add_argument(
         "--data_directory",
@@ -107,7 +111,7 @@ def define_arguments():
         "--debug_level",
         required=False,
         help="Set debul level to [NOTSET, DEBUG, INFO, WARNING, ERROR, CRITICAL]",
-        default="INFO",
+        default=C_DEBUG_LEVEL,
     )
 
     return parser
@@ -127,13 +131,14 @@ def process_arguments(args):
 
     debug_level = args.debug_level
     try:
-        set_level = log_level[debug_level]
+        set_level = getLevelName(debug_level)
     except KeyError:
-        set_level = log_level["INFO"]
-        print(f"Wrong debug level {debug_level}. Using INFO instead.")
-        logger.info(f"Wrong debug level {debug_level}. Using INFO instead.")
+        set_level = getLevelName[C_DEBUG_LEVEL]
+        log_writer.info(
+            f"Wrong debug level {debug_level}. Using {C_DEBUG_LEVEL} instead."
+        )
 
-    logger.setLevel(set_level)
+    log_writer.setLevel(set_level)
 
     if args.csv_input:
         csv_file = args.csv_input
@@ -144,10 +149,7 @@ def process_arguments(args):
         param_dict["device_list"] = get_ap_list_from_csv(
             filename=csv_file, row_index=csv_sn_column, delimiter=csv_delimiter
         )
-        logger.info(
-            f"__Using device list from CSV file {csv_file}. Serial number column is {csv_sn_column}"
-        )
-        print(
+        log_writer.info(
             f"__Using device list from CSV file {csv_file}. Serial number column is {csv_sn_column}"
         )
     else:
@@ -161,10 +163,7 @@ def process_arguments(args):
             param_dict["event_filter"]["to_timestamp"] = int(
                 datetime.timestamp(parser.parse(args.end_date))
             )
-        logger.info(
-            f'__Using device list from Aruba Central event filter {param_dict["event_filter"]}'
-        )
-        print(
+        log_writer.info(
             f'__Using device list from Aruba Central event filter {param_dict["event_filter"]}'
         )
 
@@ -173,28 +172,25 @@ def process_arguments(args):
 
     commands_file = args.json_commands
     param_dict["debug_command"] = get_debug_commands_from_json(filename=commands_file)
-    logger.info(f'__Debug commands: {param_dict.get("debug_command")}')
-    print(f'__Debug commands: {param_dict.get("debug_command")}')
+    log_writer.info(f'__Debug commands: {param_dict.get("debug_command")}')
 
     param_dict["event_file"] = {
         "filename": args.event_list,
         "directory": args.data_directory,
     }
     check_path(path=param_dict["event_file"]["directory"])
-    logger.info(f'__Output Event file is {param_dict.get("event_file")}')
-    print(f'__Output Event file is {param_dict.get("event_file")}')
+    log_writer.info(f'__Output Event file is {param_dict.get("event_file")}')
 
     return param_dict
 
 
 def validate_input_dict(inputDict, required_keys=C_REQUIRED_KEYS):
     """
-    This function checks if all the required details provided in the customers
-    key of input JSON file.
+    This function checks if all the required details provided in the input JSON file.
     """
-    logger.info("Validating Input Customer Dict...")
+    log_writer.info("Validating Input Dict...")
 
-    # Check if required keys are present in the input for all customers
+    # Check if required keys are present in the input
     input_key_error = []
 
     event_filter = inputDict.get("event_filter")
@@ -218,7 +214,7 @@ def validate_input_dict(inputDict, required_keys=C_REQUIRED_KEYS):
         error_str = error_str + "\nError: " + key_str
 
     if error_str and error_str != "":
-        logger.error(error_str)
+        log_writer.error(error_str)
         sys.exit(error_str)
 
     return None

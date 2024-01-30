@@ -1,11 +1,12 @@
-import json
-from pprint import pprint
+# -*- coding: utf-8 -*-
+'''
+    Author: Gorazd Kikelj
+    
+    gorazd.kikelj@gmail.com
+    
+'''
 from time import sleep
-import csv
 from pycentral.base import ArubaCentralBase
-
-# from icecream import ic
-
 
 def get_central_data(central, apipath: str, apiparams: dict = {"offset": 0}) -> dict:
     """
