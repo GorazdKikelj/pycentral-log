@@ -107,7 +107,7 @@ All filter fields:
 
 ```
 |   README.md
-|   Contrubutions.md
+|   run.py
 |
 |---collect_data
 |   |   collect_data.py
@@ -133,8 +133,21 @@ All filter fields:
 
 ```
 ### Usage
+
+run.py is example script how to call and run the collector. 
+
+For now you can call the collect_data from your script or use run.py
+or you can run it as a module from command line.
+
+1. $ python run.py <args>
+2. $ python -m collect_data <args>
+
 ```
-$ python collect_data.py --help
+$ python run.py --help
+
+or 
+
+$ python -m collect_data --help
 
 usage: collect_data.py [-h] [--csv_input CSV_INPUT] [--csv_sn_column CSV_SN_COLUMN] 
                        [--csv_delimiter CSV_DELIMITER] [--json_central JSON_CENTRAL] 
@@ -175,21 +188,21 @@ options:
 Collect data from devices selected in Aruba Central by events defined in filter.json from start_date.
 
 ```
-$ python collect_data.py --start_date="YYYY-MM-DD"
+$ python run.py --start_date="YYYY-MM-DD"
 
 ```
 
 Collect data from devices listed in input.csv file, where colum name SERIAL is containing device serial numbers.
 
 ```
-$ python collect_data.py --csv_input --csv_sn_column="SERIAL" 
+$ python run.py --csv_input --csv_sn_column="SERIAL" 
 
 ```
 
 Collect data from devices listed in tab-input.csv file, where delimiter is Tab and serial number is in column 3.
 
 ```
-$ python collect_data.py --csv_input="tab-input.csv" --csv_sn_column=2 --csv_delimiter="\t"
+$ python -m collect_data --csv_input="tab-input.csv" --csv_sn_column=2 --csv_delimiter="\t"
 
 ```
 ### Limitations and notes
