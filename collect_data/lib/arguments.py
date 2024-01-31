@@ -50,7 +50,7 @@ def define_arguments():
         "--csv_input",
         required=False,
         help="CSV input file containing list of AP serial numbers \
-                        to collect data from. (optional, default=input.csv)",
+                        to collect data from. (optional)",
     )
     parser.add_argument(
         "--csv_sn_column",
