@@ -28,7 +28,7 @@ python_dateutil
 Installation:
 
 1. Install prerequisites. 
-2. Clone github to destination folder ur download zip file and unpack it in destination folder.
+2. Clone github to destination folder or download zip file and unpack it in destination folder.
 
 Setup:
 
@@ -100,7 +100,7 @@ All filter fields:
 }
 ``` 
 
-4. Create a csv file if you will select APs from CSV.
+4. Or create a csv file if you will select APs from CSV.
 
 
 ### Package structure
@@ -161,7 +161,7 @@ usage: collect_data.py [-h] [--csv_input CSV_INPUT] [--csv_sn_column CSV_SN_COLU
 options:
   -h, --help            show this help message and exit
   --csv_input CSV_INPUT
-                        CSV input file containing list of AP serial numbers to collect data from. (optional, default=input.csv)
+                        CSV input file containing list of AP serial numbers to collect data from. (optional)
   --csv_sn_column CSV_SN_COLUMN
                         Column # or name where device Serial number is stored. (optional, default=0)
   --csv_delimiter CSV_DELIMITER
@@ -195,7 +195,7 @@ $ python run.py --start_date="YYYY-MM-DD"
 Collect data from devices listed in input.csv file, where colum name SERIAL is containing device serial numbers.
 
 ```
-$ python run.py --csv_input --csv_sn_column="SERIAL" 
+$ python run.py --csv_input=input.csv --csv_sn_column="SERIAL" 
 
 ```
 
