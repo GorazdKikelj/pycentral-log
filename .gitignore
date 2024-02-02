@@ -3,13 +3,10 @@ test*.py
 /data
 /log
 /token
-/__pycache__
 /*.json
 /collect_data/__pycache__
-/collect_data/lib/__pycache__
+/collect_data/lib/__pycache__/*.pyc
 /collect_data/data
 /collect_data/log
 /collect_data/token
-/collect_data/central-auth.json
-/collect_data/filter.json
-/collect_data/commands.json
+/collect_data/*.json
