@@ -12,7 +12,7 @@ import csv
 from pathlib import Path
 from datetime import datetime
 from dateutil import parser
-
+from icecream import ic
 from collect_data import C_TIMESTAMPS
 
 
@@ -192,3 +192,32 @@ def create_filename(directory: str, filename: str) -> str:
     """
     event_file = os.path.join(os.path.dirname(directory), filename)
     return event_file
+
+
+def select_keys(all_keys: dict, filter_keys: dict, filter_field: str) -> dict[str, int]:
+    """
+    From all_keys select keys not in filter_keys. Key is filter_field.
+
+    Return: Dictionary
+        Key, Job number
+
+    Parameters:
+
+        all_keys: dictionary
+            List of all devices from Aruba Central
+
+        filter_keys: dictionary
+            List of selected devices from Aruba Central or CSV file
+
+        filter_field: str
+            Key in all_keys dictionary. Value is compared with filter_keys.
+            If not found, key is appended to return dictionary.
+
+    """
+    ap_list = {}
+    for ap in all_keys:
+        if ap[filter_field] in filter_keys:
+            continue
+        ap_list[ap[filter_field]] = None
+
+    return ap_list

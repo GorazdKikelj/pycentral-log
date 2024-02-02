@@ -55,3 +55,4 @@ C_REQUIRED_KEYS = ["central_info", "debug_command", "event_file"]
 #
 C_TIMESTAMPS = ["from_timestamp", "to_timestamp"]
 #
+C_GET_RETRY_COUNT = 20

@@ -20,7 +20,6 @@ More details about [Aruba Central REST API](https://developer.arubanetworks.com/
 Requirements:
 
 ```
-icecream
 pycentral
 python_dateutil
 ```
@@ -31,6 +30,8 @@ Installation:
 2. Clone github to destination folder or download zip file and unpack it in destination folder.
 
 Setup:
+
+Template JSON files are available in templates directory. Copy JSON templates into working directory where run.py resides and update values.
 
 1. Create [Aruba Central JSON Token](https://www.arubanetworks.com/techdocs/central/2.5.7/content/nms/api/apigw-bootstrap.htm) and save it. Default filename is central.json
 
@@ -149,12 +150,12 @@ or
 
 $ python -m collect_data --help
 
-usage: collect_data.py [-h] [--csv_input CSV_INPUT] [--csv_sn_column CSV_SN_COLUMN] 
-                       [--csv_delimiter CSV_DELIMITER] [--json_central JSON_CENTRAL] 
-                       [--json_filter JSON_FILTER] [--json_commands JSON_COMMANDS] 
-                       [--event_list EVENT_LIST] [--data_directory DATA_DIRECTORY] 
-                       [--start_date START_DATE]
-                       [--end_date END_DATE] [--debug_level DEBUG_LEVEL]
+usage: run.py [-h] [--csv_input CSV_INPUT] [--csv_sn_column CSV_SN_COLUMN] 
+                   [--csv_delimiter CSV_DELIMITER] [--json_central JSON_CENTRAL] 
+                   [--json_filter JSON_FILTER] [--json_commands JSON_COMMANDS] 
+                   [--event_list EVENT_LIST] [--data_directory DATA_DIRECTORY] 
+                   [--start_date START_DATE]
+                   [--end_date END_DATE] [--debug_level DEBUG_LEVEL]
 
 ........ Log collection App for Aruba Central REST API .....
 
@@ -181,7 +182,7 @@ options:
   --end_date END_DATE   Event end date in format YYYY-MM-DD (optional, default=now)
   --debug_level DEBUG_LEVEL
                         Set debul level to [NOTSET, DEBUG, INFO, WARNING, ERROR, CRITICAL]
-
+  --inverse_search      Inverse search condition. Return only devices not in input CSV or do not have event from filter.json present
 ```
 ### Examples
 

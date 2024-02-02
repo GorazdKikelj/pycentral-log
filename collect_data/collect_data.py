@@ -7,6 +7,9 @@
 """
 from datetime import datetime
 from time import sleep
+from icecream import ic
+
+from collect_data.lib.central import get_per_ap_settings
 
 try:
     from . import C_EVENT_LIST
@@ -14,13 +17,20 @@ except ImportError:
     C_EVENT_LIST = "event_list.txt"
 
 try:
+    from . import C_GET_RETRY_COUNT
+except ImportError:
+    C_GET_RETRY_COUNT = 40
+
+try:
     from .lib import (
         get_central_data,
         post_central_data,
         connect_to_central,
+        get_per_ap_settings,
         log_writer,
         create_filename,
         init_arguments,
+        select_keys,
     )
 except ImportError as err:
     print(f"Package error:\n{err}")
@@ -134,9 +144,17 @@ ap_debug.json
 
 event_directory = ""
 
-"""
-Logger fuctions
-"""
+
+def get_ap_list_from_central(central, apiparams: dict = {"offset": 0}) -> dict:
+    """
+    Retreive all AP devices from central.
+
+    """
+    dev_list = get_central_data(
+        central=central, apipath="/monitoring/v2/aps", apiparams=apiparams
+    )
+
+    return dev_list
 
 
 def get_events_from_central(central, event_filter, event_file=C_EVENT_LIST):
@@ -146,7 +164,7 @@ def get_events_from_central(central, event_filter, event_file=C_EVENT_LIST):
     )
     with open(event_file, "w") as event_file:
         for event in event_list.get("events"):
-            aps[event.get("device_serial")] = ""
+            aps[event.get("device_serial")] = None
             tm_stamp = datetime.fromtimestamp(float(event["timestamp"]) / 1000)
             event_file.write(
                 f"{tm_stamp.isoformat()}, {event.get('device_type')}, {event.get('device_serial')}, {event.get('hostname')}, {event.get('event_type')}, {event.get('tool_tip_description')}"
@@ -155,34 +173,64 @@ def get_events_from_central(central, event_filter, event_file=C_EVENT_LIST):
     return aps
 
 
+def get_session_id_from_central(central, serial: str):
+    """
+    Get current running session id for the device
+    """
+    apiparams: dict = {"offset": 0}
+    apipath: str = f"/troubleshooting/v1/devices/{serial}/session"
+    msg = get_central_data(central=central, apipath=apipath, apiparams=apiparams)
+    if isinstance(msg, dict):
+        return msg.get("session_id")
+    return None
+
+
 def schedule_debug_command(central, serial_no, commands):
-    log_writer.info(f"Scheduling debug commands for {serial_no}")
     response = post_central_data(
         central=central,
         apipath=f"/troubleshooting/v1/devices/{serial_no}",
         apidata=commands,
     )
+    if response.get("status") in ["RUNNING"]:
+        response["session_id"] = get_session_id_from_central(
+            central=central, serial=serial_no
+        )
+    log_writer.info(
+        f"{response.get('session_id')} : {response.get('status')} : {response.get('message')} : {response.get('hostname')}"
+    )
+
     return response.get("session_id")
 
 
 def get_debug_command_result(central, serial_no, session_id):
-    if not session_id:
-        return {"status": None}
+    if isinstance(session_id, bool):
+        session_id = get_session_id_from_central(central=central, serial=serial_no)
 
+        if not session_id:
+            return {"status": None}
     count = 0
-    response = {"status": "None"}
-    while (response.get("status") != "COMPLETED") and (count <= 20):
+    response = {"status": None}
+
+    while (response.get("status") != "COMPLETED") and (count < C_GET_RETRY_COUNT):
         response = get_central_data(
             central=central,
             apipath=f"/troubleshooting/v1/devices/{serial_no}",
             apiparams={"session_id": session_id},
         )
+        if isinstance(response.get("status"), int):
+            msg = get_per_ap_settings(central=central, serial_no=serial_no)
+            log_writer(f"Get debug command result {msg}")
+            if not msg:
+                break
+            if msg.get("status") == "Down":
+                break
+
         log_writer.info(
-            f"SN: {response.get('serial')} Session ID: {session_id} Status: {response.get('status')} Result: {response.get('message')}"
+            f"{session_id} : {response.get('status')} : {response.get('message')} : {response.get('hostname')}"
         )
         count += 1
         if response.get("status") == "COMPLETED":
-            return response
+            break
         sleep(5)
 
     return response
@@ -191,16 +239,14 @@ def get_debug_command_result(central, serial_no, session_id):
 def save_debug_info(central, ap_list) -> dict:
     retry_session = {}
     for row in ap_list:
-        if not isinstance(ap_list[row], int):
-            continue
+        result = get_debug_command_result(
+            central=central, serial_no=row, session_id=ap_list[row]
+        )
         fl = open(
             create_filename(directory=event_directory, filename=f"{row}.txt"),
             "w",
             encoding="utf-8",
             errors="ignore",
-        )
-        result = get_debug_command_result(
-            central=central, serial_no=row, session_id=ap_list[row]
         )
         try:
             fl.write(result.get("output"))
@@ -213,23 +259,32 @@ def save_debug_info(central, ap_list) -> dict:
 
 def retry_collect_debug_data(central, retry_session):
     log_writer.info(f"Total debug APs to retry: {len(retry_session)}")
-    if len(retry_session) > 0:
+    count = 0
+    while (len(retry_session) > 0) and (count < 10):
         retry_session = save_debug_info(central=central, ap_list=retry_session)
+        count += 1
+        print(f"Retry loop {count}")
 
     return None
 
 
 def collect_debug_data(central, serial_list, commands_json):
+    job_list = {}
     for row in serial_list:
-        serial_list[row] = schedule_debug_command(
+        job_id = schedule_debug_command(
             central=central, serial_no=row, commands=commands_json
         )
-    log_writer.info(f"Total debug APs requested: {len(serial_list)}")
+        if job_id:
+            job_list[row] = job_id
 
-    if len(serial_list) > 0:
+    log_writer.info(
+        f"Total debug AP requested: {len(serial_list)}, total AP submited: {len(job_list)}"
+    )
+
+    if len(job_list) > 0:
         retry_collect_debug_data(
             central=central,
-            retry_session=save_debug_info(central=central, ap_list=serial_list),
+            retry_session=save_debug_info(central=central, ap_list=job_list),
         )
 
     return None
@@ -254,6 +309,17 @@ def run_collection():
             event_filter=params.get("event_filter"),
             event_file=event_file,
         )
+    if params["condition"]["inverse_search"]:
+        all_devices = get_ap_list_from_central(central=central)
+        device_list = select_keys(
+            all_keys=all_devices.get("aps"),
+            filter_keys=serial_list,
+            filter_field="serial",
+        )
+        log_writer.info(
+            f"# all devices: {len(all_devices['aps'])} skipped devices: {len(serial_list)} selected devices: {len(device_list)}"
+        )
+        serial_list = device_list
 
     collect_debug_data(
         central=central,

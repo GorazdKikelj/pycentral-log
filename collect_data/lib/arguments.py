@@ -113,6 +113,13 @@ def define_arguments():
         help="Set debul level to [NOTSET, DEBUG, INFO, WARNING, ERROR, CRITICAL]",
         default=C_DEBUG_LEVEL,
     )
+    parser.add_argument(
+        "--inverse_search",
+        required=False,
+        help="Inverse search condition. Return only devices not in input CSV or do not have event from filter.json present",
+        default=False,
+        action="store_true",
+    )
 
     return parser
 
@@ -181,6 +188,8 @@ def process_arguments(args):
     check_path(path=param_dict["event_file"]["directory"])
     log_writer.info(f'__Output Event file is {param_dict.get("event_file")}')
 
+    param_dict["condition"] = {"inverse_search": args.inverse_search}
+    log_writer.info(f"__Search conditions: {param_dict.get('condition')}")
     return param_dict
 
 

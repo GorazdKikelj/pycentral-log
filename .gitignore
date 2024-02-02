@@ -4,6 +4,7 @@ test*.py
 /log
 /token
 /__pycache__
+/*.json
 /collect_data/__pycache__
 /collect_data/lib/__pycache__
 /collect_data/data
