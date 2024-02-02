@@ -8,6 +8,7 @@
 from time import sleep
 from pycentral.base import ArubaCentralBase
 from icecream import ic
+from collect_data.logwriter import log_writer
 
 
 def get_central_data(central, apipath: str, apiparams: dict = {"offset": 0}) -> dict:
@@ -35,14 +36,14 @@ def get_central_data(central, apipath: str, apiparams: dict = {"offset": 0}) -> 
         apiMethod=apiMethod, apiPath=apiPath, apiParams=apiParams
     )
     if base_resp["code"] >= 400:
-        print(
+        log_writer.warning(
             f"Retrying GET request for {apiPath} status code {base_resp['code']} {base_resp['msg']['detail']}"
         )
         sleep(2)
         base_resp = central.command(
             apiMethod=apiMethod, apiPath=apiPath, apiParams=apiParams
         )
-        print(
+        log_writer.warning(
             f"Retried GET request for {apiPath} status code {base_resp['code']} {base_resp['msg']['detail']}"
         )
 
@@ -86,12 +87,16 @@ def post_central_data(central, apipath: str, apidata: dict = {}) -> dict:
     apiData = apidata
     base_resp = central.command(apiMethod=apiMethod, apiPath=apiPath, apiData=apiData)
     if base_resp["code"] >= 400:
-        print(f"Retrying POST request for {apiPath} status code {base_resp['code']}")
+        log_writer.warning(
+            f"Retrying POST request for {apiPath} status code {base_resp['code']}"
+        )
         sleep(2)
         base_resp = central.command(
             apiMethod=apiMethod, apiPath=apiPath, apiData=apiData
         )
-        print(f"Retried POST request for {apiPath} status code {base_resp['code']}")
+        log_writer.warning(
+            f"Retried POST request for {apiPath} status code {base_resp['code']}"
+        )
 
     return base_resp["msg"]
 

@@ -8,7 +8,7 @@
 from logging import Logger, getLogger, basicConfig
 from pathlib import Path
 
-from collect_data import C_LOG_DIR, C_DEBUG_LEVEL
+from . import C_LOG_DIR, C_DEBUG_LEVEL
 
 
 def _create_logger(log_directory: str) -> Logger:

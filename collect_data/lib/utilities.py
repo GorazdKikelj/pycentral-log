@@ -14,6 +14,7 @@ from datetime import datetime
 from dateutil import parser
 from icecream import ic
 from collect_data import C_TIMESTAMPS
+from collect_data.logwriter import log_writer
 
 
 def parse_str(str, dict, sep=","):
@@ -77,12 +78,12 @@ def read_jsonfile(filename: str, object_hook=False) -> dict:
                 else:
                     jsondict = json.load(infile)
             except Exception as err:
-                # log_writer.error("Error in Input JSON file: %s" % str(err))
+                log_writer.error("Error in Input JSON file: %s" % str(err))
                 sys.exit("Error in Input JSON file: %s" % str(err))
 
         return jsondict
     else:
-        # log_writer.error("JSON input file %s not found. exiting..." % str(jsonfile))
+        log_writer.error("JSON input file %s not found. exiting..." % str(jsonfile))
         sys.exit("Error: json input file %s not found. exiting..." % str(jsonfile))
 
 

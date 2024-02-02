@@ -9,7 +9,8 @@ from datetime import datetime
 from time import sleep
 from icecream import ic
 
-from collect_data.lib.central import get_per_ap_settings
+from .lib import get_per_ap_settings
+from .logwriter import log_writer
 
 try:
     from . import C_EVENT_LIST

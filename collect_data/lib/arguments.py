@@ -30,8 +30,9 @@ from . import (
     get_filter_from_json,
     get_central_from_json,
     check_path,
-    log_writer,
 )
+
+from collect_data.logwriter import log_writer
 
 
 def define_arguments():
