@@ -28,7 +28,6 @@ try:
         post_central_data,
         connect_to_central,
         get_per_ap_settings,
-        log_writer,
         create_filename,
         init_arguments,
         select_keys,

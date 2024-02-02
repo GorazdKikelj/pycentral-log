@@ -12,7 +12,6 @@ from .central import (
     post_central_data,
     get_per_ap_settings,
 )
-from .logconfig import log_writer
 from .utilities import (
     get_ap_list_from_csv,
     get_central_from_json,

@@ -31,6 +31,8 @@ Installation:
 
 Setup:
 
+To change default values update config.py.
+
 Template JSON files are available in templates directory. Copy JSON templates into working directory where run.py resides and update values.
 
 1. Create [Aruba Central JSON Token](https://www.arubanetworks.com/techdocs/central/2.5.7/content/nms/api/apigw-bootstrap.htm) and save it. Default filename is central.json
@@ -150,12 +152,8 @@ or
 
 $ python -m collect_data --help
 
-usage: run.py [-h] [--csv_input CSV_INPUT] [--csv_sn_column CSV_SN_COLUMN] 
-                   [--csv_delimiter CSV_DELIMITER] [--json_central JSON_CENTRAL] 
-                   [--json_filter JSON_FILTER] [--json_commands JSON_COMMANDS] 
-                   [--event_list EVENT_LIST] [--data_directory DATA_DIRECTORY] 
-                   [--start_date START_DATE]
-                   [--end_date END_DATE] [--debug_level DEBUG_LEVEL]
+usage: run.py [-h] [--csv_input CSV_INPUT] [--csv_sn_column CSV_SN_COLUMN] [--csv_delimiter CSV_DELIMITER] [--json_central JSON_CENTRAL] [--json_filter JSON_FILTER] [--json_commands JSON_COMMANDS] [--event_list EVENT_LIST]
+              [--data_directory DATA_DIRECTORY] [--start_date START_DATE] [--end_date END_DATE] [--debug_level DEBUG_LEVEL] [--inverse_search]
 
 ........ Log collection App for Aruba Central REST API .....
 
@@ -206,9 +204,17 @@ Collect data from devices listed in tab-input.csv file, where delimiter is Tab a
 $ python -m collect_data --csv_input="tab-input.csv" --csv_sn_column=2 --csv_delimiter="\t"
 
 ```
+
+Collect data from all devices not in the input.csv file.
+
+```
+$ python run.py --csv_input=input.csv --csv_sn_column="SERIAL" --inverse_search
+
+```
+
 ### Limitations and notes
 
-1. Device type and debug commands need to match. Only one type of device can be used in a run.
+1. Device type and debug commands need to match. Only one type of device can be used in a run. Currently only AP device type was tested.
 2. CSV and Event selections are mutally excluded. Only one type of device selection can be used on a run.
 3. Default directory for returned data is data/
 4. Serial number is used for filename for device log results
