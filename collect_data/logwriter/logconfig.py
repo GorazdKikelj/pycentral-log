@@ -4,63 +4,107 @@
     
     gorazd.kikelj@gmail.com
     
+    Logging setup was inspired by mCoding YouTube channel:
+    https://www.youtube.com/@mCoding
+    https://github.com/mCodingLLC/VideosSampleCode/tree/master/videos/135_modern_logging
+    
+    
 """
-from logging import Logger, getLogger, basicConfig
+from logging import (
+    Logger,
+    getLogger,
+    basicConfig,
+    Filter,
+    INFO,
+    LogRecord,
+    getLevelName,
+)
 from pathlib import Path
+import json
+import logging.config
+import logging.handlers
+from typing import Type
 
-from . import C_LOG_DIR, C_DEBUG_LEVEL
+from typing_extensions import override
+from xml.dom import ValidationErr
+
+from . import C_LOG_DIR, C_DEBUG_LEVEL, C_LOG_CONFIG
+
+
+class NonErrorFilter(Filter):
+    @override
+    def filter(self, record: LogRecord) -> bool | LogRecord:
+        return record.levelno <= INFO
+
+
+def setup_logging():
+    """
+    Set the logger object for logging into file and terminal.
+
+    Constants:
+    C_DEBUG_LEVEL   set the initial debug level for Terminal output.
+                    This can be overriden by specifying debug level
+                    with --debug_level parameter
+
+    C_DEBUG_LEVEL_FILE set default debug level for log file. If set
+                    to None it defaults to C_DEBUG_LEVEL
+
+    C_LOG_CONFIG    points to the JSON config file
+
+    C_LOG_DIR       default log directory
+
+    """
+    config_file = Path(C_LOG_CONFIG)
+    with open(config_file, "r") as f_in:
+        config = json.load(f_in)
+
+    try:
+        ln_log: str = Path(C_LOG_DIR + config["handlers"]["file"]["filename"])
+        config["handlers"]["file"]["filename"] = ln_log
+    except KeyError:
+        pass
+
+    logging.config.dictConfig(config)
 
 
 def _create_logger(log_directory: str) -> Logger:
-    Path(C_LOG_DIR).mkdir(parents=False, exist_ok=True)
 
-    logger: Logger = getLogger(__name__)
+    Path(log_directory).mkdir(parents=False, exist_ok=True)
+
+    setup_logging()
+
+    #    logger: Logger = getLogger(__name__)
+    logger: Logger = getLogger()
 
     basicConfig(
-        filename=f"{log_directory}troubleshooting.log",
         filemode="a",
-        format="%(asctime)s : %(levelname)s : %(module)s %(lineno)d : %(message)s",
         level=C_DEBUG_LEVEL,
     )
 
     return logger
 
 
-logger = _create_logger(log_directory=C_LOG_DIR)
+log_writer = _create_logger(log_directory=C_LOG_DIR)
 
 
-class Log_Writer:
-    def __init__(self) -> None:
-        self.msg = None
+def check_debug_level(debug_level: str) -> None:
+    dbg_level = debug_level.upper()
+    if not dbg_level in [
+        "NOTSET",
+        "DEBUG",
+        "INFO",
+        "WARNING",
+        "ERROR",
+        "CRITICAL",
+    ]:
+        log_writer.error(
+            f"Unknown debug level {dbg_level}. Using {C_DEBUG_LEVEL} instead."
+        )
+        dbg_level = C_DEBUG_LEVEL
 
-    def debug(self, msg) -> None:
-        logger.debug(msg)
-        print(msg)
-        return None
+    log_writer.setLevel(dbg_level)
+    for handler in log_writer.handlers:
+        handler.setLevel(dbg_level)
+    log_writer.info(f"__Debug level: {dbg_level}")
 
-    def info(self, msg) -> None:
-        logger.info(msg)
-        print(msg)
-        return None
-
-    def warning(self, msg) -> None:
-        logger.warning(msg)
-        print(msg)
-        return None
-
-    def error(self, msg) -> None:
-        logger.error(msg)
-        print(msg)
-        return None
-
-    def critical(self, msg) -> None:
-        logger.critical(msg)
-        print(msg)
-        return None
-
-    def setLevel(self, msg) -> None:
-        logger.setLevel(msg)
-        return None
-
-
-log_writer = Log_Writer()
+    return None

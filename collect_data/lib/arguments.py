@@ -9,7 +9,6 @@ import argparse
 import sys
 from datetime import datetime
 from dateutil import parser
-from logging import getLevelName
 
 
 from collect_data import (
@@ -32,7 +31,7 @@ from . import (
     check_path,
 )
 
-from collect_data.logwriter import log_writer
+from collect_data.logwriter import log_writer, check_debug_level
 
 
 def define_arguments():
@@ -111,8 +110,8 @@ def define_arguments():
     parser.add_argument(
         "--debug_level",
         required=False,
-        help="Set debul level to [NOTSET, DEBUG, INFO, WARNING, ERROR, CRITICAL]",
-        default=C_DEBUG_LEVEL,
+        help="Set debug level to [NOTSET, DEBUG, INFO, WARNING, ERROR, CRITICAL]",
+        default=None,
     )
     parser.add_argument(
         "--inverse_search",
@@ -138,15 +137,8 @@ def process_arguments(args):
     # Extract customer info from input JSON File
 
     debug_level = args.debug_level
-    try:
-        set_level = getLevelName(debug_level)
-    except KeyError:
-        set_level = getLevelName[C_DEBUG_LEVEL]
-        log_writer.info(
-            f"Wrong debug level {debug_level}. Using {C_DEBUG_LEVEL} instead."
-        )
-
-    log_writer.setLevel(set_level)
+    if debug_level:
+        check_debug_level(debug_level)
 
     if args.csv_input:
         csv_file = args.csv_input

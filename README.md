@@ -22,6 +22,7 @@ Requirements:
 ```
 pycentral
 python_dateutil
+typing_extensions
 ```
 
 Installation:
@@ -105,6 +106,7 @@ All filter fields:
 
 4. Or create a csv file if you will select APs from CSV.
 
+5. Copy logconfig.json file from templates directory. 
 
 ### Package structure
 

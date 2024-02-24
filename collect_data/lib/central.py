@@ -37,14 +37,14 @@ def get_central_data(central, apipath: str, apiparams: dict = {"offset": 0}) -> 
     )
     if base_resp["code"] >= 400:
         log_writer.warning(
-            f"Retrying GET request for {apiPath} status code {base_resp['code']} {base_resp['msg']['detail']}"
+            f"Retrying GET request for {apiPath} status code {base_resp['code']} {base_resp['msg'].get('detail')}"
         )
         sleep(2)
         base_resp = central.command(
             apiMethod=apiMethod, apiPath=apiPath, apiParams=apiParams
         )
         log_writer.warning(
-            f"Retried GET request for {apiPath} status code {base_resp['code']} {base_resp['msg']['detail']}"
+            f"Retried GET request for {apiPath} status code {base_resp['code']} {base_resp['msg'].get('detail')}"
         )
 
     return base_resp.get("msg")

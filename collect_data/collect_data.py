@@ -33,7 +33,7 @@ try:
         select_keys,
     )
 except ImportError as err:
-    print(f"Package error:\n{err}")
+    log_writer.exception("Import Lib Package error:")
     exit()
 """
 
@@ -163,13 +163,16 @@ def get_events_from_central(central, event_filter, event_file=C_EVENT_LIST):
         central=central, apipath="/monitoring/v2/events", apiparams=event_filter
     )
     with open(event_file, "w") as event_file:
+        if not event_list.get("events"):
+            log_writer.error("No events returned from Aruba Central.")
+            return None
+
         for event in event_list.get("events"):
             aps[event.get("device_serial")] = None
             tm_stamp = datetime.fromtimestamp(float(event["timestamp"]) / 1000)
             event_file.write(
                 f"{tm_stamp.isoformat()}, {event.get('device_type')}, {event.get('device_serial')}, {event.get('hostname')}, {event.get('event_type')}, {event.get('tool_tip_description')}"
             )
-
     return aps
 
 
@@ -263,12 +266,17 @@ def retry_collect_debug_data(central, retry_session):
     while (len(retry_session) > 0) and (count < 10):
         retry_session = save_debug_info(central=central, ap_list=retry_session)
         count += 1
-        print(f"Retry loop {count}")
-
     return None
 
 
 def collect_debug_data(central, serial_list, commands_json):
+
+    if not serial_list:
+        log_writer.error(
+            "No serial numbers in the input list for module collect_debug_data"
+        )
+        return None
+
     job_list = {}
     for row in serial_list:
         job_id = schedule_debug_command(
