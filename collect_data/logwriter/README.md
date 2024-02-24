@@ -1,6 +1,6 @@
 ### Setup logging
 
-Logging setup was inspired by [mCoding YouTube channel]([https://www.youtube.com/@mCoding). [Source code for this video](https://github.com/mCodingLLC/VideosSampleCode/tree/master/videos/135_modern_logging)
+Logging setup was inspired by [mCoding YouTube channel](https://www.youtube.com/@mCoding). [Source code for this video](https://github.com/mCodingLLC/VideosSampleCode/tree/master/videos/135_modern_logging)
 
 
 Default logging settings are stored in logconfig.json
