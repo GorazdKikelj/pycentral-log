@@ -1,4 +1,4 @@
-### Collect log and debug data from devices managed by Aruba Central
+# Collect log and debug data from devices managed by Aruba Central
 
 Hewlett Packard Enterprise Aruba Central is unified network management platform
 for wired, wireless and SD-WAN networks.
@@ -15,9 +15,9 @@ More details about [Aruba Central REST API](https://developer.arubanetworks.com/
 [pycentral](https://developer.arubanetworks.com/aruba-central/docs/python-using-api-sdk) information is available on Aruba Developer hub.
 
 
-### Installation
+## Installation
 
-Requirements:
+### Requirements:
 
 ```
 pycentral
@@ -25,12 +25,12 @@ python_dateutil
 typing_extensions
 ```
 
-Installation:
+### Installation:
 
 1. Install prerequisites. 
 2. Clone github to destination folder or download zip file and unpack it in destination folder.
 
-Setup:
+### Setup:
 
 To change default values update config.py.
 
@@ -108,7 +108,7 @@ All filter fields:
 
 5. Copy logconfig.json file from templates directory. 
 
-### Package structure
+## Package structure
 
 ```
 |   README.md
@@ -137,7 +137,7 @@ All filter fields:
         |   ...
 
 ```
-### Usage
+## Usage
 
 run.py is example script how to call and run the collector. 
 
@@ -184,7 +184,7 @@ options:
                         Set debul level to [NOTSET, DEBUG, INFO, WARNING, ERROR, CRITICAL]
   --inverse_search      Inverse search condition. Return only devices not in input CSV or do not have event from filter.json present
 ```
-### Examples
+## Examples
 
 Collect data from devices selected in Aruba Central by events defined in filter.json from start_date.
 
@@ -214,7 +214,7 @@ $ python run.py --csv_input=input.csv --csv_sn_column="SERIAL" --inverse_search
 
 ```
 
-### Limitations and notes
+## Limitations and notes
 
 1. Device type and debug commands need to match. Only one type of device can be used in a run. Currently only AP device type was tested.
 2. CSV and Event selections are mutally excluded. Only one type of device selection can be used on a run.
@@ -224,9 +224,9 @@ $ python run.py --csv_input=input.csv --csv_sn_column="SERIAL" --inverse_search
 6. --start_date and --end_date overwrite fields in filter.json
 7. log and data directories are automatically created if does not exist
 
-### Central Token JSON
+## Central Token JSON
 
-central.json
+### central.json
     Authorization data for REST API Gateway. 
     Use token or username/password. Do not use both. 
     
@@ -245,7 +245,7 @@ central_info = {
 }
 
 ```
-
+## Device Selection
 ### CSV file device selection
 
 CSV file need to contain serial number of the device. 
@@ -329,7 +329,7 @@ All filter fields:
 
 ```
 
-### Debug commands
+## Debug commands
 
 commands.json
 
