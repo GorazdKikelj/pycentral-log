@@ -1,11 +1,9 @@
 ### Setup logging
 
-Logging setup was inspired by mCoding YouTube channel:
-[https://www.youtube.com/@mCoding]([https://www.youtube.com/@mCoding)
-[Source code for this video](https://github.com/mCodingLLC/VideosSampleCode/tree/master/videos/135_modern_logging)
+Logging setup was inspired by [mCoding YouTube channel]([https://www.youtube.com/@mCoding). [Source code for this video](https://github.com/mCodingLLC/VideosSampleCode/tree/master/videos/135_modern_logging)
 
 
-Default logging setups are stored in logconfig.json
+Default logging settings are stored in logconfig.json
 
 Default setup file location C_LOG_DIR can be modified in logwriter\config.py.
 
