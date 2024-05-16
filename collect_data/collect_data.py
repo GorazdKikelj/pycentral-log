@@ -9,7 +9,9 @@ from datetime import datetime
 from time import sleep
 from icecream import ic
 
-from .lib import get_per_ap_settings, update_per_ap_settings
+from collect_data.lib.central import use_pycentral_ap_settings
+
+from .lib import get_per_ap_settings, update_per_ap_settings, use_pycentral_ap_settings
 from .logwriter import log_writer
 
 try:
@@ -347,7 +349,10 @@ def update_ap_settings() -> None:
     for row in serial_list:
         log_writer.info(f"Updating AP {row}")
         job_id = get_per_ap_settings(central=central, serial_no=row)
-        log_writer.info(job_id)
+        log_writer.info(f"Gorazd: {job_id}")
+
+        job_id = use_pycentral_ap_settings(central=central, serial_no=row)
+        log_writer.info(f"pycentral: {job_id}")
 
     return
 

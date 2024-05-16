@@ -173,3 +173,23 @@ def update_per_ap_settings(central, serial_no, apdata) -> dict:
     """
     apipath = f"/configuration/v1/ap_settings_cli/{serial_no}"
     return post_central_data(central=central, apipath=apipath, apidata=apdata)
+
+
+def use_pycentral_ap_settings(central, serial_no):
+    """
+    Test function for pycentral oiginal functions
+    get_ap_settings
+    update_ap_settings
+
+    """
+    ap_config = ApSettings()
+    ap_setting = ap_config.get_ap_settings(conn=central, serial_number=serial_no)
+    ic(ap_setting)
+
+    ap_data = {
+        "hostname": "AP_host",
+        "ip_address": "0.0.0.0 0.0.0.0 0.0.0.0 0.0.0.0",
+        "swarm-mode": "cluster",
+        "zonename": "",
+    }
+    return ap_setting
