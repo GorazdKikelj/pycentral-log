@@ -8,7 +8,7 @@
 
 __all__ = ["collect_data"]
 __author__ = "Gorazd Kikelj"
-__version__ = "0.1.0"
+__version__ = "0.1.2"
 __license__ = "MIT"
 
 
@@ -32,4 +32,4 @@ try:
 except ImportError:  # Graceful fallback if IceCream isn't installed.
     ic = lambda *a: None if not a else (a[0] if len(a) == 1 else a)  # noqa
 
-from .collect_data import run_collection
+from .collect_data import run_collection, update_ap_settings

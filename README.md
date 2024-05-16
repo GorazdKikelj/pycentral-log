@@ -383,3 +383,29 @@ Example commands.json file:
 }
 
 ```
+# Experimental features
+## New Features
+### update_ap_settings()
+
+Test of the update proceduer for AP settings.
+Read data about AP settings from Central and add possibility to update
+settings.
+
+Input file --csv_input contain AP serial numbers for update.
+
+Experimental feature. Current version only return values from Central.
+
+Use example:
+
+```
+python update.py --csv_input input.csv
+
+```
+
+Example csv file:
+```
+input.csv
+
+XXCCSSEEDD
+YYXXSSDDWW
+```

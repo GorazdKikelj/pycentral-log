@@ -23,10 +23,8 @@ from pathlib import Path
 import json
 import logging.config
 import logging.handlers
-from typing import Type
 
 from typing_extensions import override
-from xml.dom import ValidationErr
 
 from . import C_LOG_DIR, C_DEBUG_LEVEL, C_LOG_CONFIG
 

@@ -9,7 +9,7 @@ from datetime import datetime
 from time import sleep
 from icecream import ic
 
-from .lib import get_per_ap_settings
+from .lib import get_per_ap_settings, update_per_ap_settings
 from .logwriter import log_writer
 
 try:
@@ -171,7 +171,7 @@ def get_events_from_central(central, event_filter, event_file=C_EVENT_LIST):
             aps[event.get("device_serial")] = None
             tm_stamp = datetime.fromtimestamp(float(event["timestamp"]) / 1000)
             event_file.write(
-                f"{tm_stamp.isoformat()}, {event.get('device_type')}, {event.get('device_serial')}, {event.get('hostname')}, {event.get('event_type')}, {event.get('tool_tip_description')}"
+                f"{tm_stamp.isoformat()}, {event.get('device_type')}, {event.get('device_serial')}, {event.get('hostname')}, {event.get('event_type')}, {event.get('tool_tip_description')}\n"
             )
     return aps
 
@@ -222,7 +222,7 @@ def get_debug_command_result(central, serial_no, session_id):
         )
         if isinstance(response.get("status"), int):
             msg = get_per_ap_settings(central=central, serial_no=serial_no)
-            log_writer(f"Get debug command result {msg}")
+            log_writer.info(f"Get debug command result {msg}")
             if not msg:
                 break
             if msg.get("status") == "Down":
@@ -337,8 +337,25 @@ def run_collection():
     return None
 
 
+def update_ap_settings() -> None:
+    params = init_arguments()
+    central = connect_to_central(central_info=params.get("central_info"))
+    serial_list = params.get("device_list")
+    if not serial_list:
+        log_writer.info("No Serial Numbers found in device csv input file")
+        return
+    for row in serial_list:
+        log_writer.info(f"Updating AP {row}")
+        job_id = get_per_ap_settings(central=central, serial_no=row)
+        log_writer.info(job_id)
+
+    return
+
+
 def main():
+
     run_collection()
+    update_ap_settings()
 
 
 if __name__ == "__main__":

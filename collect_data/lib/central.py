@@ -7,6 +7,7 @@
 """
 from time import sleep
 from pycentral.base import ArubaCentralBase
+from pycentral.configuration import ApSettings
 from icecream import ic
 from collect_data.logwriter import log_writer
 
@@ -144,4 +145,31 @@ def get_per_ap_settings(central, serial_no) -> dict:
     ap_data = get_central_data(central=central, apipath=apipath)
     if isinstance(ap_data, dict):
         return ap_data.get("aps")
-    return None
+    return ap_data
+
+
+def update_per_ap_settings(central, serial_no, apdata) -> dict:
+    """
+    Replace whole per AP setting of an AP in UI group. The posted data should be modified from the get result.
+    Otherwise, it may corrupt the configuration. Should use with caution!
+
+    Use settings from get_per_ap_settings and modify required value. It can
+    Available setting are in json format:
+    { "clis": [
+    "per-ap-settings xx:xx:xx:xx:xx:xx",
+        "  hostname ZL-AP-635-RW-004",
+        "  ip-address 0.0.0.0 0.0.0.0 0.0.0.0 0.0.0.0 \"\"",
+        "  swarm-mode standalone|cluster|single-ap",
+        "  wifi0-mode access|monitor|spectrum-monitor",
+        "  wifi1-mode access|monitor|spectrum-monitor",
+        "  g-channel 0 -127",
+        "  a-channel 0 -127",
+        "  a-external-antenna 0",
+        "  g-external-antenna 0",
+        "  wifi2-mode access|monitor|spectrum-monitor",
+        "  uplink-vlan 0"
+        ]
+    }
+    """
+    apipath = f"/configuration/v1/ap_settings_cli/{serial_no}"
+    return post_central_data(central=central, apipath=apipath, apidata=apdata)
